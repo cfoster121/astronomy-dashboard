@@ -12,7 +12,7 @@
 
 <body>
     <!-- NAV -->
-    <nav class="bg-white border-gray-200 px-2 my-4 sm:px-4 py-2.5 rounded dark:bg-gray-800">
+    <nav class="bg-white border-gray-200 px-2 m-4 sm:px-4 py-2.5 rounded dark:bg-gray-800">
         <div class="container flex flex-wrap justify-between items-center mx-auto">
 
             <span class="self-center text-lg font-semibold whitespace-nowrap dark:text-white">Astronomy
@@ -44,11 +44,11 @@
 
     <main class="container flex grid-flow-row">
 
-        <div class="lg:columns-[15rem] inset-y-0 left-0 text-center text-xl bg-gray-800 text-white 
+        <div class="w-1/7 inset-y-0 left-0 text-center text-xl bg-gray-800 text-white 
             rounded ml-4" id="searchResults">
             <h3>City Search</h3>
             <div>
-                <input text="type" class="cityText m-2 rounded" id="cityText">
+                <input text="type" class="text-black m-2 rounded" id="cityText">
                 <button class="bg-sky-600 hover:bg-sky-700 m-2 rounded" type="button" id="searchButton">
                     &#x1F50D
                 </button>
@@ -60,8 +60,10 @@
 
         </div>
 
+        <div class="w=6/7" id="weather ml-40">
+        
 
-        <div id="weather ml-40"></div>
+        </div>
         <div id="starChart"></div>
         <div id="moonVisTable"></div>
     </main>

@@ -8,26 +8,17 @@ var apiKey = "723b345acdd52204dfb9a13e95119b61";
 var starchart = $('#starChart');
 var meteorShower = $('#meteors');
 
-var lyrids = moment().from("2022/1/13", true);
-var aquariids = moment().from("2022/5/07", true);
-var sAquariids = moment().from("2022/07/30", true);
-var capricornids = moment().from("2022/7/27", true);
-var perseids = moment().from("2022/8/12", true);
-var orionids = moment().from("2022/10/22", true);
-var sTaurids = moment().from("2022/10/29", true);
-var nTaurids = moment().from("2022/11/11", true);
 
-$('#m1').text(lyrids);
-$('#m2').text(aquariids);
-$('#m3').text(sAquariids);
-$('#m4').text(capricornids);
-$('#m5').text(perseids);
-$('#m6').text(orionids);
-$('#m7').text(sTaurids);
-$('#m8').text(nTaurids);
+$('#m1').text(moment().from("2022/1/13", true));
+$('#m2').text(moment().from("2022/5/07", true));
+$('#m3').text(moment().from("2022/07/30", true));
+$('#m4').text(moment().from("2022/7/27", true));
+$('#m5').text(moment().from("2022/8/12", true));
+$('#m6').text(moment().from("2022/10/22", true));
+$('#m7').text(moment().from("2022/10/29", true));
+$('#m8').text(moment().from("2022/11/11", true));
 
-let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
-
+var searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 
 $('#apod').on('click', function () {
     document.location = 'apod.html';
@@ -43,7 +34,9 @@ $("#searchButton").on("click", function (event) {
         searchHistory.push(searchInput.val());
         localStorage.setItem("search", JSON.stringify(searchHistory));
     };
-    getCityWeather(searchInput.val());
+    var cityInput = searchInput.val();
+    var searchCity = cityInput.replace(" ", "+");
+    getCityWeather(searchCity);
 });
 
 //Clear button event listener to clear the search history
@@ -52,56 +45,47 @@ $("#clearButton").on("click", function (event) {
     localStorage.removeItem("search");
 })
 
-
-//obtain Geolocation
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        weatherinfo.text("Geolocation is not supported by this browser.");
+if(localStorage.getItem('lat') == null){
+    //obtain Geolocation
+    getLocation();
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            weatherinfo.text("Geolocation is not supported by this browser.");
+        }
     }
+
+    function showPosition(position) {
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+
+        localStorage.setItem("lat",lat);
+        localStorage.setItem("lon",lon);
+
+        getLocationWeather(lat, lon);
+        getMoonData(lat,lon)
+    }
+}else{
+    getLocationWeather(localStorage.getItem("lat"),localStorage.getItem("lon"));
+    getMoonData(localStorage.getItem("lat"),localStorage.getItem("lon"));
 }
 
-function showPosition(position) {
-    weatherinfo.html("Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude);
-    console.log(position.coords.latitude);
-    console.log(position.coords.longitude);
-    var lat = position.coords.latitude;
-    var lon = position.coords.longitude;
-    getLocationWeather(lat, lon);
-}
-
+//Using geolocation
 function getLocationWeather(lat, lon) {
-    let queryUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
-    fetch(queryUrl)
-        .then(function (response) {
-            console.log(response.status);
-            return response.json();
-        })
-        .then(function (response) {
-            cityNameEl.text(response.name);
-            let weatherIcon = response.weather[0].icon;
-            //Get weather icons from api request
-            weatherIconEl.attr("src", "https://openweathermap.org/img/wn/" + weatherIcon + "@2x.png");
-            weatherIconEl.attr("alt", response.weather[0].description);
-            //Convert temp from deg K to deg F
-            temperatureEl.text("Temperature: " + k2F(response.main.temp) + " °F");
-            cloudinessEl.text("Cloudiness: " + response.clouds.all + "%");
-        });
-}
-getLocation();
-
-//Temperature conversion
-function k2F(k) {
-    return Math.floor((k - 273.15) * 1.8 + 32);
+    let queryUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + apiKey;
+    getWeather(queryUrl);
 }
 
-
-
+//Using Search Bar
 function getCityWeather(searchTerm) {
-    let cityQueryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + searchTerm + "&appid=" + apiKey;
-    fetch(cityQueryUrl)
+    let cityQueryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + searchTerm +"&units=imperial&appid=" + apiKey;
+    getWeather(cityQueryUrl)
+}
+
+//Fetch Weather Data
+function getWeather(url){
+    fetch(url)
         .then(function (cityData) {
             console.log(cityData.status);
             return cityData.json();
@@ -112,14 +96,73 @@ function getCityWeather(searchTerm) {
             //Get weather icons from api request
             weatherIconEl.attr("src", "https://openweathermap.org/img/wn/" + weatherIcon + "@2x.png");
             weatherIconEl.attr("alt", cityData.weather[0].description);
-            //Convert temp from deg K to deg F
-            temperatureEl.text("Temperature: " + k2F(cityData.main.temp) + " °F");
+            temperatureEl.text("Temperature: " + cityData.main.temp + " °F");
             cloudinessEl.text("Cloudiness: " + cityData.clouds.all + "%");
         });
 }
+// getLocation();
 
 
 
+//User opens page 
+    // execute function to check local storage location
+        // get lat/long/location from local storage if present and assign to variable
+            // if values are not null (values are present - location name not required) 
+                // execute all functions that require lat/long with local storage data
+                    // getMoonLocation()
+                    // other functions requiring lat/long
+                    // append location information to page
+            // if values are null
+                // execute prompt user location function
+                    // calls on getCurrentPosition function
+                       // if successful  
+                            // run lines 138-141
+                            // store information in local storage
+                        // if unsuccessful 
+                            // temporary solution 
+                                //if failed - notify user that location cannot be captured and set location to predermined values
+                                    // set values to local storage/execute functions requiring lat and long
+                            // execute displayUserInfoCapture() ***Stretch goal - not part of MVP***
+                                // identify empty div
+                                // populate empty div with 
+                                    // call to action for user to enter in location
+                                        // need input field
+                                        // need variable pointing to form/input field
+                                        // need event listener for form submission
+                                        // once user submits form with location
+                                            //execute fetch coords
+                                                // user submits valid location 
+                                                    // lat long returned
+                                                        // execute get moon phase with lat/long as arguments
+                                                        // set lat/long in local storage as well as location name
+                                                // user submits invalid location
+                                                    // execute generateOptionalUserLocations function
+                                                        // targets empty div
+                                                            // append text content saying invalid location and asking user to select from given options
+                                                            // array of string values of locations
+                                                            // iterate through array, generate buttons, text content, data attribute
+                                                            // append buttons to unique div on page (optional-location-buttons)
+        // global variable pointing to optional-locations-buttons div (empty parent div - will have buttons if user submits invalid location) ***Also part of stretch goal***
+        // add event listener to optional-locations-buttons div
+            // if something inside of div is clicked,
+                // create variable pointing to button that was clicked (event parameter, this)
+                    //event.target(data-location) ***look up syntax
+                        //once we have event from button, excute fetchCoords
+
+          // make pointer to input form
+  // add event lister to it
+  // grab a hold of input values when submitted
+    // send input value to  fetchCoords funtion (london, san fran)
+      // if all goes well - set lat/lon in location storage in addition to locaiton name (london, san fran)
+      //if things do not go well 
+        //append message to screen about selcting one of 7 option
+          //nyc
+          //london
+          //sf
+          // ...
+
+
+function getMoonData (lat,lon){
 //Use lat/long to get location key
 $.getJSON("http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=0q8znAyCHgfaN2OS3I5rUKa5s2gbg4x2&q=" + lat + "%2C" + lon, function (data) {
 
@@ -179,3 +222,6 @@ $.getJSON("http://dataservice.accuweather.com/locations/v1/cities/geoposition/se
     })
 
 })
+
+}
+

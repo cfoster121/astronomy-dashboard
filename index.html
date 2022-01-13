@@ -7,10 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="assets/css/style.css">
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
-    ></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <title>Astronomy Dashboard</title>
 </head>
 
@@ -57,34 +54,35 @@
                     &#x1F50D
                 </button>
             </div>
-            <div id="cityButtons" class="flex flex-col-reverse p-2">
+
+            <!--We put the search history below-->
+            <div id="searchedCities" class="history flex flex-col-reverse p-2">
 
             </div>
+
             <button onClick="window.location.reload();" class="bg-sky-600 hover:bg-sky-700 m-2 rounded lg:w-40"
-                id="clearButton">Clear Results</button>
-                 <!--We put the search history below-->
-            <div id="searchedCities" class="history"></div>
+                id="clearButton">Clear Results
+            </button>
+
         </div>
 
-<!--Weather block start-->
-        <div class="flex flex-col">
-            <div class="w=6/7 ml-10" id="weather">
-            </div>
-            <div class="row">
+        <!--Weather block start-->
+        <div class="w=6/7 ml-10 flex flex-col">
+            <div class="flex flex-col border-solid border-gray-800" id="weather">
                 <h3 id="cityName"></h3>
-                <img id="weather-icon"></img>
-             </div>
-             <!--Current weather conditions-->
-             <div class="row">
-                 <p id="temperature"></p>
-             </div>
-             <div class="row">
-                 <p id="cloudiness"></p>
-        </div>
-<!--Weather block start-->
+                <img id="weather-icon" class="w-16 h-16"></img>
+                <!--Current weather conditions-->
+                <p id="temperature"></p>
+                <p id="cloudiness"></p>
+
+            </div>
+            <!--Weather block start-->
 
             <div id="starChart"></div>
-            <div id="moonVisibility"></div>
+            <div id="moon-phase">Current Moon Phase:
+                <p id="moon-phase-name"></p>
+                <img id="moon-phase-icon" src="">
+            </div>
             <div id="meteors">
                 <table class="table-auto mx-10" id="meteorTable">
                     <thead>
@@ -158,10 +156,7 @@
             </div>
             <br>
             <br>
-            <div id="moon-phase">Current Moon Phase:
-                <p id="moon-phase-name"></p>
-                <img id="moon-phase-icon" src="">
-            </div>
+            
         </div>
     </main>
 </body>

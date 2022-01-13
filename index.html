@@ -7,6 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="assets/css/style.css">
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
+    ></script>
     <title>Astronomy Dashboard</title>
 </head>
 
@@ -25,16 +29,16 @@
                             aria-current="page" id="apod">Astronomy Photo of the Day</a>
                     </li>
                     <li>
-                        <a href="#" class="block text-white py-2 pr-4 pl-3">Weather</a>
+                        <a href="#weather" class="block text-white py-2 pr-4 pl-3">Weather</a>
                     </li>
                     <li>
-                        <a href="#" class="block text-white py-2 pr-4 pl-3">Star Chart</a>
+                        <a href="#starChart" class="block text-white py-2 pr-4 pl-3">Star Chart</a>
                     </li>
                     <li>
-                        <a href="#" class="block text-white py-2 pr-4 pl-3">Moon Phase</a>
+                        <a href="#moonVisibility" class="block text-white py-2 pr-4 pl-3">Moon Phase</a>
                     </li>
                     <li>
-                        <a href="#" class=" block text-white py-2 pr-4 pl-3">Upcoming Events</a>
+                        <a href="#meteors" class=" block text-white py-2 pr-4 pl-3">Upcoming Events</a>
                     </li>
                 </ul>
             </div>
@@ -74,12 +78,93 @@
                  <p class="cloudiness"></p>
             </div>
                
+        <div class="flex flex-col">
+            <div class="w=6/7 ml-10" id="weather">
+                text
+
+            </div>
+            <div id="starChart"></div>
+            <div id="moonVisibility"></div>
+            <div id="meteors">
+                <table class="table-auto mx-10" id="meteorTable">
+                    <thead>
+                        <tr>
+                            <th class="w-auto">Name of Shower</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Constellation</th>
+                            <th>Time Remaining</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lyrids</td>
+                            <td>April 22</td>
+                            <td>4:00 AM</td>
+                            <td>Lyra</td>
+                            <td id="m1"></td>
+                        </tr>
+                        <tr>
+                            <td>eta Aquariids</td>
+                            <td>May 07</td>
+                            <td>4:00 AM</td>
+                            <td>Aquarius</td>
+                            <td id="m2"></td>
+                        </tr>
+                        <tr>
+                            <td>Southern Delta Aquariids</td>
+                            <td>July 30</td>
+                            <td>3:00 AM</td>
+                            <td>Aquarius</td>
+                            <td id="m3"></td>
+                        </tr>
+                        <tr>
+                            <td>Alpha Capricornids</td>
+                            <td>July 27</td>
+                            <td>1:00 AM</td>
+                            <td>Capricorn</td>
+                            <td id="m4"></td>
+                        </tr>
+                        <tr>
+                            <td>Perseids</td>
+                            <td>Aug 12</td>
+                            <td>4:00 AM</td>
+                            <td>Perseus</td>
+                            <td id="m5"></td>
+                        </tr>
+                        <tr>
+                            <td>Orionids</td>
+                            <td>October 22</td>
+                            <td>5:00 AM</td>
+                            <td>Orion</td>
+                            <td id="m6"></td>
+                        </tr>
+                        <tr>
+                            <td>Southern Taurids</td>
+                            <td>October 29</td>
+                            <td>1:00 AM</td>
+                            <td>Taurus</td>
+                            <td id="m7"></td>
+                        </tr>
+                        <tr>
+                            <td>Northern Taurids</td>
+                            <td>Novermber 11</td>
+                            <td>Midnight</td>
+                            <td>Taurus</td>
+                            <td id="m8"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <br>
+            <div id="moon-phase">Current Moon Phase:
+                <p id="moon-phase-name"></p>
+                <img id="moon-phase-icon" src="">
+            </div>
         </div>
-        <div id="starChart"></div>
-        <div id="moonVisTable"></div>
     </main>
 </body>
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>

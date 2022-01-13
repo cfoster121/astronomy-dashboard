@@ -11,12 +11,17 @@
 </head>
 <body>
     <header class="container w-100 text-center">
-        <p  class="text-2xl underline">Astronomy Photo of the Day</p>
+        <p  class="text-2xl underline m-5">Astronomy Photo of the Day</p>
     </header>
-    <main>
-        <img id="apodPhoto"/>
-        <p id="apodCaption"></p>
+    <main class="container">
+        
+        <p class="text-center text-bold text-2xl"id="apodCaption"></p>
+        <img class="object-center m-10 container rounded border-gray-200 " id="apodPhoto"/>
+        
     </main>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+
 <script src="assets/js/apod.js"></script>
 </html>

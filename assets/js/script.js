@@ -64,16 +64,20 @@ if(localStorage.getItem('lat') == null){
         localStorage.setItem("lon",lon);
 
         getLocationWeather(lat, lon);
+        getMoonData(lat,lon)
     }
+}else{
+    getLocationWeather(localStorage.getItem("lat"),localStorage.getItem("lon"));
+    getMoonData(localStorage.getItem("lat"),localStorage.getItem("lon"));
 }
 
-
+//Using geolocation
 function getLocationWeather(lat, lon) {
     let queryUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + apiKey;
     getWeather(queryUrl);
 }
 
-//Search City
+//Using Search Bar
 function getCityWeather(searchTerm) {
     let cityQueryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + searchTerm +"&units=imperial&appid=" + apiKey;
     getWeather(cityQueryUrl)
@@ -158,8 +162,7 @@ function getWeather(url){
           // ...
 
 
-
-
+function getMoonData (lat,lon){
 //Use lat/long to get location key
 $.getJSON("http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=0q8znAyCHgfaN2OS3I5rUKa5s2gbg4x2&q=" + lat + "%2C" + lon, function (data) {
 
@@ -219,3 +222,6 @@ $.getJSON("http://dataservice.accuweather.com/locations/v1/cities/geoposition/se
     })
 
 })
+
+}
+

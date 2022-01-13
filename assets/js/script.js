@@ -1,9 +1,14 @@
 var weatherinfo = $('#weather');
+var starchart = $('#starChart');
+var meteorShower = $('#meteors');
+
+var searchCity = $('#searchButton')
 
 $('#apod').on('click', function () {
     document.location = 'apod.html'
 })
 
+//obtain Geolocation
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -13,9 +18,10 @@ function getLocation() {
 }
 
 function showPosition(position) {
-    weatherinfo.html("Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude);
-    console.log(position.coords.latitude);
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+    weatherinfo.html("Latitude: " + lat +"<br>Longitude: " + lon);
+
+    return [lat, lon];
 }
 
-getLocation();

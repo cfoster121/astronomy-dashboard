@@ -48,8 +48,8 @@
 
     <main class="container flex grid-flow-row">
 
-        <div class="w-1/7 inset-y-0 left-0 text-center text-xl bg-gray-800 text-white 
-            rounded ml-4" id="searchResults">
+        <div class="search w-1/7 inset-y-0 left-0 text-center text-xl bg-gray-800 text-white 
+            rounded ml-4">
             <h3>City Search</h3>
             <div>
                 <input text="type" class="text-black m-2 rounded" id="cityText">
@@ -61,11 +61,13 @@
 
             </div>
             <button onClick="window.location.reload();" class="bg-sky-600 hover:bg-sky-700 m-2 rounded lg:w-40"
-                id="clear">Clear Results</button>
-
+                id="clearButton">Clear Results</button>
+                 <!--We put the search history below-->
+            <div id="searchedCities" class="history"></div>
         </div>
 
-        <div class="w=6/7 ml-10" id="weather">
+        <div class="flex flex-col">
+            <div class="w=6/7 ml-10" id="weather">
              <div class="row">
                 <h3 class="cityName"></h3>
                 <img class="weather-icon"></img>
@@ -77,12 +79,7 @@
              <div class="row">
                  <p class="cloudiness"></p>
             </div>
-               
-        <div class="flex flex-col">
-            <div class="w=6/7 ml-10" id="weather">
-                text
-
-            </div>
+        </div>
             <div id="starChart"></div>
             <div id="moonVisibility"></div>
             <div id="meteors">

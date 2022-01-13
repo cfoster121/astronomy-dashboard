@@ -43,5 +43,64 @@ function showPosition(position) {
     return [lat, lon];
 }
 
+console.log(lat)
 
+//Use lat/long to get location key
+$.getJSON("http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=0q8znAyCHgfaN2OS3I5rUKa5s2gbg4x2&q=" + lat + "%2C" + lon, function(data){
 
+    var locationKey = data.Key
+  
+//Get moon phase at current location
+    $.getJSON("http://dataservice.accuweather.com/forecasts/v1/daily/1day/" + locationKey + "?apikey=0q8znAyCHgfaN2OS3I5rUKa5s2gbg4x2&details=true", function(data) {
+
+    var newMoon = "images/new-moon.png"
+    var waxingCrescent = "images/waxing-crescent.png"
+    var firstQuarter = "images/first-quarter.png"
+    var waxingGibbous = "images/waxing-gibbous.png"
+    var fullMoon = "images/full-moon.png"
+    var waningGibbous = "images/waning-gibbous.png"
+    var lastQuarter = "images/last-quarter.png"
+    var waningCrescent = "images/waning-crescent.png"
+
+    var moonPhase = data.DailyForecasts[0].Moon.Phase
+    if (moonPhase == "NewMoon") {
+        $("#moon-phase-name").html("New Moon")
+        $("#moon-phase-icon").attr("src", newMoon)
+
+    }
+    if (moonPhase == "WaxingCrescent") {
+        $("#moon-phase-name").html("Waxing Crescent")
+        $("#moon-phase-icon").attr("src", waxingCrescent)
+
+    }
+    if (moonPhase == "FirstQuarter") {
+        $("#moon-phase-name").html("First Quarter")
+        $("#moon-phase-icon").attr("src", firstQuarter)
+
+    }
+    if (moonPhase == "WaxingGibbous") {
+        $("#moon-phase-name").html("Waxing Gibbous")
+        $("#moon-phase-icon").attr("src", waxingGibbous)
+    }
+    if (moonPhase == "FullMoon") {
+        $("#moon-phase-name").html("Full Moon")
+        $("#moon-phase-icon").attr("src", fullMoon)
+
+    }
+    if (moonPhase == "WaningGibbous") {
+        $("#moon-phase-name").html("Waning Gibbous")
+        $("#moon-phase-icon").attr("src", waningGibbous)
+
+    }
+    if (moonPhase == "LastQuarter") {
+        $("#moon-phase-name").html("Last Quarter")
+        $("#moon-phase-icon").attr("src", lastQuarter)
+
+    }
+    if (moonPhase == "WaningCrescent") {
+        $("#moon-phase-name").html("Waning Crescent")
+        $("#moon-phase-icon").attr("src", waningCrescent)
+    }
+    })
+
+})

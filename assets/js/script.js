@@ -4,6 +4,7 @@ var cityNameEl = $("#cityName");
 var weatherIconEl = $("#weather-icon");
 var temperatureEl = $("#temperature");
 var cloudinessEl = $("#cloudiness");
+var visibilityEl = $('#visibility');
 var apiKey = "723b345acdd52204dfb9a13e95119b61";
 var starchart = $('#starChart');
 var meteorShower = $('#meteors');
@@ -19,6 +20,10 @@ $('#m6').text(moment().from("2022/10/22", true));
 $('#m7').text(moment().from("2022/10/29", true));
 $('#m8').text(moment().from("2022/11/11", true));
 
+$('#apod').on('click', function () {
+    document.location = 'apod.html';
+})
+
 //Constellation Data
 var month = moment().format("MMM");
 console.log("month",month);
@@ -32,7 +37,11 @@ if(month == "Dec" || month == "Jan" || month == "Feb"){
     con1.attr("src",'./assets/Constellation/Autumn.jpg');
 }
 
+//--------------------------------------------------------------------------------------------------------------------
+//search City
+
 var searchHistory = JSON.parse(localStorage.getItem("search")) || [];
+//show buttons for cities in local storage
 for(let i = 0 ; i < searchHistory.length ; i++){
     var city = searchHistory[i].replace(" ", "+");
     var cityButton = $('<button type="button">');
@@ -41,15 +50,11 @@ for(let i = 0 ; i < searchHistory.length ; i++){
     cityButton.attr("data-city", city);
     $('#searchedCities').append(cityButton);
 }
-
+//Event listener for pre-searched cities
 $('#searchedCities').on('click', '.cityButton', function () {
     var city = $(this).text();
     console.log(city);
     fetchWeather(city);
-})
-
-$('#apod').on('click', function () {
-    document.location = 'apod.html';
 })
 
 //Search button event listener
@@ -75,12 +80,11 @@ var fetchWeather = function (cityInput) {
           alert("City Not Found")
           return;
         }
-
-  
         //Conditional to check if the city is already in local storage or not
         if (!searchHistory.includes(cityInput)) {
           generateButton(cityInput, city);
         }
+        console.log(cityData);
         cityNameEl.text(cityData.name);
         let weatherIcon = cityData.weather[0].icon;
         //Get weather icons from api request
@@ -88,6 +92,7 @@ var fetchWeather = function (cityInput) {
         weatherIconEl.attr("alt", cityData.weather[0].description);
         temperatureEl.text("Temperature: " + cityData.main.temp + " °F");
         cloudinessEl.text("Cloudiness: " + cityData.clouds.all + "%");
+        visibilityEl.text("Visibility: " + cityData.visibility + " meters");
 
       })
 }
@@ -113,6 +118,9 @@ $("#clearButton").on("click", function (event) {
     localStorage.removeItem("search");
     location.reload();
 })
+
+//------------------------------------------------------------------------------------------------------------------------------
+//Geolocation
 
 if(localStorage.getItem('lat') == null){
     //obtain Geolocation
@@ -161,6 +169,7 @@ function getWeather(url){
             weatherIconEl.attr("alt", cityData.weather[0].description);
             temperatureEl.text("Temperature: " + cityData.main.temp + " °F");
             cloudinessEl.text("Cloudiness: " + cityData.clouds.all + "%");
+            visibilityEl.text("Visibility: " + cityData.visibility + " meters");
         });
 }
 

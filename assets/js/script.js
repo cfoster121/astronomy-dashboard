@@ -7,7 +7,6 @@ const cloudinessEl = $(".cloudiness");
 const apiKey = "723b345acdd52204dfb9a13e95119b61";
 var starchart = $('#starChart');
 var meteorShower = $('#meteors');
-var searchCity = $('#searchButton');
 
 var lyrids = moment().from("2022/1/13",true);
 var aquariids = moment().from("2022/5/07",true);
@@ -27,6 +26,8 @@ $('#m6').text(orionids);
 $('#m7').text(sTaurids);
 $('#m8').text(nTaurids);
 
+let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
+
 
 $('#apod').on('click', function () {
     document.location = 'apod.html';
@@ -43,6 +44,13 @@ $("#searchButton").on("click", function(event) {
     localStorage.setItem("search", JSON.stringify(searchHistory));
     getWeather(searchInput.val());
 });
+
+//Clear button event listener to clear the search history
+$("#clearButton").on("click", function(event) {
+    event.preventDefault();
+    localStorage.removeItem("search");
+    window.location.reload();
+  })
 
 
 //obtain Geolocation
@@ -80,24 +88,6 @@ function getDate(date){
 function getWeather(position) {
     let queryUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&appid=" + apiKey;
     fetch(queryUrl)
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(response){
-        cityNameEl.text(response.name + " (" + getDate(response.dt) + ") ");
-        let weatherIcon = response.weather[0].icon;
-        //Get weather icons from api request
-        weatherIconEl.attr("src", "https://openweathermap.org/img/wn/" + weatherIcon + "@2x.png");
-        weatherIconEl.attr("alt", response.weather[0].description);
-        //Convert temp from deg K to deg F
-        temperatureEl.text("Temperature: " + k2F(response.main.temp) + " °F");
-        cloudinessEl.text("Cloudiness: " + response.clouds.all + "%"); 
-     });
-}
-
-function getWeather(position) {
-    let coordsQueryUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&appid=" + apiKey;
-    fetch(coordsQueryUrl)
       .then(function(response) {
         return response.json();
       })

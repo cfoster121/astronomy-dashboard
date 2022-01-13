@@ -18,8 +18,7 @@ $('#m6').text(moment().from("2022/10/22", true));
 $('#m7').text(moment().from("2022/10/29", true));
 $('#m8').text(moment().from("2022/11/11", true));
 
-let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
-
+var searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 
 $('#apod').on('click', function () {
     document.location = 'apod.html';
@@ -46,43 +45,43 @@ $("#clearButton").on("click", function (event) {
     localStorage.removeItem("search");
 })
 
+if(localStorage.getItem('lat') == null){
+    //obtain Geolocation
+    getLocation();
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            weatherinfo.text("Geolocation is not supported by this browser.");
+        }
+    }
 
-//obtain Geolocation
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        weatherinfo.text("Geolocation is not supported by this browser.");
+    function showPosition(position) {
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+
+        localStorage.setItem("lat",lat);
+        localStorage.setItem("lon",lon);
+
+        getLocationWeather(lat, lon);
     }
 }
 
-function showPosition(position) {
-    var lat = position.coords.latitude;
-    var lon = position.coords.longitude;
-    getLocationWeather(lat, lon);
-}
 
 function getLocationWeather(lat, lon) {
     let queryUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + apiKey;
-    fetch(queryUrl)
-        .then(function (response) {
-            console.log(response.status);
-            return response.json();
-        })
-        .then(function (response) {
-            cityNameEl.text(response.name);
-            let weatherIcon = response.weather[0].icon;
-            //Get weather icons from api request
-            weatherIconEl.attr("src", "https://openweathermap.org/img/wn/" + weatherIcon + "@2x.png");
-            weatherIconEl.attr("alt", response.weather[0].description);
- 
-            temperatureEl.text("Temperature: " +response.main.temp + " °F");
-            cloudinessEl.text("Cloudiness: " + response.clouds.all + "%");
-        });
+    getWeather(queryUrl);
 }
+
+//Search City
 function getCityWeather(searchTerm) {
     let cityQueryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + searchTerm +"&units=imperial&appid=" + apiKey;
-    fetch(cityQueryUrl)
+    getWeather(cityQueryUrl)
+}
+
+//Fetch Weather Data
+function getWeather(url){
+    fetch(url)
         .then(function (cityData) {
             console.log(cityData.status);
             return cityData.json();
@@ -97,8 +96,7 @@ function getCityWeather(searchTerm) {
             cloudinessEl.text("Cloudiness: " + cityData.clouds.all + "%");
         });
 }
-
-getLocation();
+// getLocation();
 
 
 

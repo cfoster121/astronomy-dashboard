@@ -1,7 +1,12 @@
 //api key = TufhpyWHkOqJrSy0fUCfVdv9DXlZS3MHqLX0cazP
 
 var photo = $('#apodPhoto');
-var caption = $('#apodCaption')
+var caption = $('#apodCaption');
+var back = $("#goBack");
+
+back.on('click',function(){
+  document.location = 'index.html';
+})
 
 requestUrl = 'https://api.nasa.gov/planetary/apod?api_key=TufhpyWHkOqJrSy0fUCfVdv9DXlZS3MHqLX0cazP'
 

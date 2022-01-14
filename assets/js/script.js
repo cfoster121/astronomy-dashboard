@@ -165,7 +165,7 @@ var fetchWeather = function (cityInput) {
         
 
             //Conditional to check if the city is already in local storage or not
-            if (!searchHistory.includes(cityInput)) {
+            if (!searchHistory.includes(cityInput) && cityData.message !== "city not found") {
                 generateButton(cityInput, city);
             }
             console.log(cityData);

@@ -66,12 +66,14 @@ $('#searchButton').on('click', function () {
 
 //If search input is valid, retrieve weather data
     if (searchInput) {
+        $("#weather").removeClass("hidden")
         $(".search-btns").addClass("hidden")
         fetchWeather(searchInput)
     }
 
 //If search input is empty, prompt user with city choices
     if (!searchInput) {
+        $("#weather").addClass("hidden")
         $(".search-btns").removeClass("hidden")
         $("#city-names").html("")
         $("#choose-city").html("Unable to find city" + "<br>" + "<br>" + "Choose city below")
@@ -89,22 +91,26 @@ $('#searchButton').on('click', function () {
     }
 
     $("#ny").on("click", function (event) {
-        fetchWeather("new york city")
         $("#city-names").html("")
+        $("#weather").removeClass("hidden")
         $(".search-btns").addClass("hidden")
+        fetchWeather("new york city")
     })
     $("#ber").on("click", function (event) {
         fetchWeather("berlin")
+        $("#weather").removeClass("hidden")
         $("#city-names").html("")
         $(".search-btns").addClass("hidden")
     })
     $("#cai").on("click", function (event) {
         fetchWeather("cairo")
+        $("#weather").removeClass("hidden")
         $("#city-names").html("")
         $(".search-btns").addClass("hidden")
     })
     $("#tok").on("click", function (event) {
         fetchWeather("tokyo")
+        $("#weather").removeClass("hidden")
         $("#city-names").html("")
         $(".search-btns").addClass("hidden")
     })
@@ -126,8 +132,9 @@ var fetchWeather = function (cityInput) {
         .then(function (cityData) {
         //If search input is invalid, prompt user with city choices
             if (cityData.message == "city not found") {
-                $(".search-btns").removeClass("hidden")
+                $("#weather").addClass("hidden")
                 $("#city-names").html("")
+                $(".search-btns").removeClass("hidden")
                 $("#choose-city").html("Unable to find city" + "<br>" + "<br>" + "Choose city below")
                 $("#choose-city").addClass("text-2xl text-slate-50 capitalize underline decoration-double")
 
@@ -146,21 +153,25 @@ var fetchWeather = function (cityInput) {
                 fetchWeather("new york city")
                 $("#city-names").html("")
                 $(".search-btns").addClass("hidden")
+                $("#weather").removeClass("hidden")
             })
             $("#ber").on("click", function (event) {
                 fetchWeather("berlin")
                 $("#city-names").html("")
                 $(".search-btns").addClass("hidden")
+                $("#weather").removeClass("hidden")
             })
             $("#cai").on("click", function (event) {
                 fetchWeather("cairo")
                 $("#city-names").html("")
                 $(".search-btns").addClass("hidden")
+                $("#weather").removeClass("hidden")
             })
             $("#tok").on("click", function (event) {
                 fetchWeather("tokyo")
                 $("#city-names").html("")
                 $(".search-btns").addClass("hidden")
+                $("#weather").removeClass("hidden")
             });
         
 

@@ -40,7 +40,6 @@ if (month == "Dec" || month == "Jan" || month == "Feb") {
 //--------------------------------------------------------------------------------------------------------------------
 //search City
 
-$("#phase-description").html("We cannot see the moon when it is a new moon")
 
 
 var searchHistory = JSON.parse(localStorage.getItem("search")) || [];
@@ -296,41 +295,43 @@ function getMoonData(lat, lon) {
             if (moonPhase == "NewMoon") {
                 $("#moon-phase-name").html("New Moon")
                 $("#moon-phase-icon").attr("src", newMoon)
-                $("#phase-description").html("We cannot see the moon when it is a new moon")
+                $("#phase-description").html("We cannot see the moon when it is a new moon.")
 
             }
             if (moonPhase == "WaxingCrescent") {
                 $("#moon-phase-name").html("Waxing Crescent")
                 $("#moon-phase-icon").attr("src", waxingCrescent)
-
+                $("#phase-description").html("In the Northern Hemisphere, we see the waxing crescent phase as a thin crescent of light on the right. In the Southern Hemisphere, we see the waning crescent as a thin crescent of light on the left.")
             }
             if (moonPhase == "FirstQuarter") {
                 $("#moon-phase-name").html("First Quarter")
                 $("#moon-phase-icon").attr("src", firstQuarter)
-
+                $("#phase-description").html("We see the first quarter phase as a half moon.")
             }
             if (moonPhase == "WaxingGibbous") {
                 $("#moon-phase-name").html("Waxing Gibbous")
                 $("#moon-phase-icon").attr("src", waxingGibbous)
+                $("#phase-description").html("The waxing gibbous phase is between a half moon and a full moon. Waxing means it is getting bigger.")
             }
             if (moonPhase == "FullMoon") {
                 $("#moon-phase-name").html("Full Moon")
                 $("#moon-phase-icon").attr("src", fullMoon)
-
+                $("#phase-description").html("We can see the moon completely illuminated during full moons.")
             }
             if (moonPhase == "WaningGibbous") {
                 $("#moon-phase-name").html("Waning Gibbous")
                 $("#moon-phase-icon").attr("src", waningGibbous)
-
+                $("#phase-description").html("The waning gibbous phase is between a half moon and a full moon. Waning means it is getting smaller.")
             }
             if (moonPhase == "LastQuarter") {
                 $("#moon-phase-name").html("Last Quarter")
                 $("#moon-phase-icon").attr("src", lastQuarter)
-
+                $("#phase-description").html("We see the last quarter moon as a half moon.")
             }
             if (moonPhase == "WaningCrescent") {
                 $("#moon-phase-name").html("Waning Crescent")
                 $("#moon-phase-icon").attr("src", waningCrescent)
+                $("#phase-description").html("In the Northern Hemisphere, we see the waning crescent phase as a thin crescent of light on the left. In the Southern Hemisphere, we see the waning crescent as a thin crescent of light on the right.")
             }
         })
 

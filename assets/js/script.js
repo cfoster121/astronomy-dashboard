@@ -61,6 +61,18 @@ $('#searchedCities').on('click', '.cityButton', function () {
 $('#searchButton').on('click', function () {
     var searchInput = $('#cityText').val();
     if(!searchInput){
+        $("#weather").html("Choose a city")
+
+        var ny= $('<input type="button" value="New York"/>');
+        var ber= $('<input type="button" value="Berlin"/>');
+        var cai= $('<input type="button" value="Cairo"/>');
+        var tok= $('<input type="button" value="Tokyo"/>');
+
+        $("#weather").append(ny);
+        $("#weather").append(ber);
+        $("#weather").append(cai);
+        $("#weather").append(tok);
+
         return;
     }
     fetchWeather(searchInput);

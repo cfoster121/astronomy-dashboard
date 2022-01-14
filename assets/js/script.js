@@ -60,6 +60,9 @@ $('#searchedCities').on('click', '.cityButton', function () {
 //Search button event listener
 $('#searchButton').on('click', function () {
     var searchInput = $('#cityText').val();
+    if(!searchInput){
+        return;
+    }
     fetchWeather(searchInput);
     $('#cityText').val("");
 })

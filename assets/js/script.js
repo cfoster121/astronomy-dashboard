@@ -63,10 +63,10 @@ $('#searchButton').on('click', function () {
     if(!searchInput){
         $("#weather").html("Choose a city")
 
-        var ny= $('<input type="button" value="New York"/>');
-        var ber= $('<input type="button" value="Berlin"/>');
-        var cai= $('<input type="button" value="Cairo"/>');
-        var tok= $('<input type="button" value="Tokyo"/>');
+        var ny= $('<input type="button" value="New York" class="btn"/>');
+        var ber= $('<input type="button" value="Berlin" class="btn"/>');
+        var cai= $('<input type="button" value="Cairo" class="btn"/>');
+        var tok= $('<input type="button" value="Tokyo" class="btn"/>');
 
         $("#weather").append(ny);
         $("#weather").append(ber);

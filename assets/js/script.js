@@ -312,5 +312,7 @@ $.getJSON("http://dataservice.accuweather.com/locations/v1/cities/geoposition/se
 }
 
 $(document).ready( function () {
-    $('#meteorTable').DataTable();
+    $('#meteorTable').DataTable( {
+        "ordering": false
+    } );
 } );

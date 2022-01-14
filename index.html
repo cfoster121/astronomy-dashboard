@@ -17,7 +17,7 @@
     <nav class="border-gray-200 px-2 m-4 sm:px-4 py-2.5 rounded bg-slate-800">
         <div class="container flex flex-wrap justify-between items-center mx-auto">
 
-            <span class="self-center text-lg font-semibold whitespace-nowrap dark:text-white">Astronomy
+            <span class="self-center text-lg text-white font-semibold whitespace-nowrap dark:text-white">Astronomy
                 Dashboard</span>
 
             <div class="hidden w-full sm:block sm:w-auto">
@@ -66,8 +66,12 @@
 
         </div>
 
-
         <div class="w=6/7 ml-10 flex flex-col w-full">
+
+            <div class="hidden search-btns flex flex-col md:flex-shrink bg-cyan-700 text-slate-100 rounded-md text-center font-mono w-full">
+                <div id="choose-city"></div>
+                <div class="flex flex-col" id="city-names"></div>
+            </div>
 
             <div class="flex flex-col md:flex-shrink bg-cyan-700 text-slate-100 rounded-md text-center font-mono w-full" id="weather">
                 <br>
@@ -104,7 +108,6 @@
 
             <br>
             <br>
-
 
             <div class="text-center self-center" id="meteors">
                 <h2 class="text-2xl underline decoration-double">Upcoming Meteor Showers:</h2>
@@ -193,3 +196,5 @@
 
 
 </html>
+
+

@@ -380,8 +380,11 @@ function getMoonData(lat, lon) {
 
 }
 
-$(document).ready(function () {
-    $('#meteorTable').DataTable();
-});
 
+
+$(document).ready( function () {
+    $('#meteorTable').DataTable( {
+        "ordering": false
+    } );
+} );
 

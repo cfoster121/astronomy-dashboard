@@ -40,6 +40,8 @@ if (month == "Dec" || month == "Jan" || month == "Feb") {
 //--------------------------------------------------------------------------------------------------------------------
 //search City
 
+
+
 var searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 //show buttons for cities in local storage
 for (let i = 0; i < searchHistory.length; i++) {
@@ -271,63 +273,6 @@ function getWeather(url) {
 }
 
 
-//User opens page 
-// execute function to check local storage location
-// get lat/long/location from local storage if present and assign to variable
-// if values are not null (values are present - location name not required) 
-// execute all functions that require lat/long with local storage data
-// getMoonLocation()
-// other functions requiring lat/long
-// append location information to page
-// if values are null
-// execute prompt user location function
-// calls on getCurrentPosition function
-// if successful  
-// run lines 138-141
-// store information in local storage
-// if unsuccessful 
-// temporary solution 
-//if failed - notify user that location cannot be captured and set location to predermined values
-// set values to local storage/execute functions requiring lat and long
-// execute displayUserInfoCapture() ***Stretch goal - not part of MVP***
-// identify empty div
-// populate empty div with 
-// call to action for user to enter in location
-// need input field
-// need variable pointing to form/input field
-// need event listener for form submission
-// once user submits form with location
-//execute fetch coords
-// user submits valid location 
-// lat long returned
-// execute get moon phase with lat/long as arguments
-// set lat/long in local storage as well as location name
-// user submits invalid location
-// execute generateOptionalUserLocations function
-// targets empty div
-// append text content saying invalid location and asking user to select from given options
-// array of string values of locations
-// iterate through array, generate buttons, text content, data attribute
-// append buttons to unique div on page (optional-location-buttons)
-// global variable pointing to optional-locations-buttons div (empty parent div - will have buttons if user submits invalid location) ***Also part of stretch goal***
-// add event listener to optional-locations-buttons div
-// if something inside of div is clicked,
-// create variable pointing to button that was clicked (event parameter, this)
-//event.target(data-location) ***look up syntax
-//once we have event from button, excute fetchCoords
-
-// make pointer to input form
-// add event lister to it
-// grab a hold of input values when submitted
-// send input value to  fetchCoords funtion (london, san fran)
-// if all goes well - set lat/lon in location storage in addition to locaiton name (london, san fran)
-//if things do not go well 
-//append message to screen about selcting one of 7 option
-//nyc
-//london
-//sf
-// ...
-
 function getMoonData(lat, lon) {
     //Use lat/long to get location key
     $.getJSON("http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=0q8znAyCHgfaN2OS3I5rUKa5s2gbg4x2&q=" + lat + "%2C" + lon, function (data) {
@@ -350,40 +295,43 @@ function getMoonData(lat, lon) {
             if (moonPhase == "NewMoon") {
                 $("#moon-phase-name").html("New Moon")
                 $("#moon-phase-icon").attr("src", newMoon)
+                $("#phase-description").html("We cannot see the moon when it is a new moon.")
 
             }
             if (moonPhase == "WaxingCrescent") {
                 $("#moon-phase-name").html("Waxing Crescent")
                 $("#moon-phase-icon").attr("src", waxingCrescent)
-
+                $("#phase-description").html("In the Northern Hemisphere, we see the waxing crescent phase as a thin crescent of light on the right. In the Southern Hemisphere, we see the waning crescent as a thin crescent of light on the left.")
             }
             if (moonPhase == "FirstQuarter") {
                 $("#moon-phase-name").html("First Quarter")
                 $("#moon-phase-icon").attr("src", firstQuarter)
-
+                $("#phase-description").html("We see the first quarter phase as a half moon.")
             }
             if (moonPhase == "WaxingGibbous") {
                 $("#moon-phase-name").html("Waxing Gibbous")
                 $("#moon-phase-icon").attr("src", waxingGibbous)
+                $("#phase-description").html("The waxing gibbous phase is between a half moon and a full moon. Waxing means it is getting bigger.")
             }
             if (moonPhase == "FullMoon") {
                 $("#moon-phase-name").html("Full Moon")
                 $("#moon-phase-icon").attr("src", fullMoon)
-
+                $("#phase-description").html("We can see the moon completely illuminated during full moons.")
             }
             if (moonPhase == "WaningGibbous") {
                 $("#moon-phase-name").html("Waning Gibbous")
                 $("#moon-phase-icon").attr("src", waningGibbous)
-
+                $("#phase-description").html("The waning gibbous phase is between a half moon and a full moon. Waning means it is getting smaller.")
             }
             if (moonPhase == "LastQuarter") {
                 $("#moon-phase-name").html("Last Quarter")
                 $("#moon-phase-icon").attr("src", lastQuarter)
-
+                $("#phase-description").html("We see the last quarter moon as a half moon.")
             }
             if (moonPhase == "WaningCrescent") {
                 $("#moon-phase-name").html("Waning Crescent")
                 $("#moon-phase-icon").attr("src", waningCrescent)
+                $("#phase-description").html("In the Northern Hemisphere, we see the waning crescent phase as a thin crescent of light on the left. In the Southern Hemisphere, we see the waning crescent as a thin crescent of light on the right.")
             }
         })
 

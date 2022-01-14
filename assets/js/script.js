@@ -4,6 +4,7 @@ var cityNameEl = $("#cityName");
 var weatherIconEl = $("#weather-icon");
 var temperatureEl = $("#temperature");
 var cloudinessEl = $("#cloudiness");
+var visibilityEl = $("#visibility");
 var apiKey = "723b345acdd52204dfb9a13e95119b61";
 var starchart = $('#starChart');
 var meteorShower = $('#meteors');
@@ -31,6 +32,7 @@ $("#searchButton").on("click", function (event) {
         alert("Please enter a city");
         return;
     } else {
+        //Push the search input to the search history
         searchHistory.push(searchInput.val());
         localStorage.setItem("search", JSON.stringify(searchHistory));
     };
@@ -98,6 +100,7 @@ function getWeather(url){
             weatherIconEl.attr("alt", cityData.weather[0].description);
             temperatureEl.text("Temperature: " + cityData.main.temp + " °F");
             cloudinessEl.text("Cloudiness: " + cityData.clouds.all + "%");
+            visibilityEl.text("Visibility: " + cityData.visibility + " meters");
         });
 }
 // getLocation();
@@ -223,5 +226,11 @@ $.getJSON("http://dataservice.accuweather.com/locations/v1/cities/geoposition/se
 
 })
 
+
 }
+
+$(document).ready(function() {
+    $('#meteorTable').DataTable();
+});
+
 

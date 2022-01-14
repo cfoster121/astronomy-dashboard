@@ -8,6 +8,7 @@ var visibilityEl = $("#visibility");
 var apiKey = "723b345acdd52204dfb9a13e95119b61";
 var starchart = $('#starChart');
 var meteorShower = $('#meteors');
+var con = $('#img1');
 
 
 $('#m1').text(moment().from("2022/1/13", true));
@@ -19,18 +20,49 @@ $('#m6').text(moment().from("2022/10/22", true));
 $('#m7').text(moment().from("2022/10/29", true));
 $('#m8').text(moment().from("2022/11/11", true));
 
-var searchHistory = JSON.parse(localStorage.getItem("search")) || [];
-
 $('#apod').on('click', function () {
     document.location = 'apod.html';
 })
 
+//Constellation Data
+var month = moment().format("MMM");
+console.log("month",month);
+if(month == "Dec" || month == "Jan" || month == "Feb"){
+    con.attr("src",'./assets/Constellation/winter.jpg');
+}else if (month == "Mar" || month == "Apr" || month == "May"){
+    con.attr("src",'./assets\Constellation/spring.jpg');
+}else if (month == "Jun" || month == "Jul" || month == "Aug"){
+    con.attr("src",'./assets\Constellation/summer.jpg');
+}else{
+    con.attr("src",'./assets/Constellation/Autumn.jpg');
+}
+
+//--------------------------------------------------------------------------------------------------------------------
+//search City
+
+var searchHistory = JSON.parse(localStorage.getItem("search")) || [];
+//show buttons for cities in local storage
+for(let i = 0 ; i < searchHistory.length ; i++){
+    var city = searchHistory[i].replace(" ", "+");
+    var cityButton = $('<button type="button">');
+    cityButton.text(searchHistory[i]);
+    cityButton.addClass("bg-sky-600 hover:bg-sky-700 m-2 rounded cityButton");
+    cityButton.attr("data-city", city);
+    $('#searchedCities').append(cityButton);
+}
+//Event listener for pre-searched cities
+$('#searchedCities').on('click', '.cityButton', function () {
+    var city = $(this).text();
+    console.log(city);
+    fetchWeather(city);
+})
+
 //Search button event listener
-$("#searchButton").on("click", function (event) {
-    event.preventDefault();
-    if (searchInput.val() === "") {
-        alert("Please enter a city");
+$('#searchButton').on('click', function () {
+    var searchInput = $('#cityText').val();
+    if(!searchInput){
         return;
+
     } else {
         //Push the search input to the search history
         searchHistory.push(searchInput.val());
@@ -41,11 +73,69 @@ $("#searchButton").on("click", function (event) {
     getCityWeather(searchCity);
 });
 
+    }
+    fetchWeather(searchInput);
+    $('#cityText').val("");
+})
+//Fetching Weather Data with Search Bar
+var fetchWeather = function (cityInput) {
+    var city = cityInput.replace(" ", "+");
+    var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=imperial&appid=e6a41f6fdcb53d621e32978ad90ef82f';
+  
+    //fetch weather
+    fetch(requestUrl)
+      .then(function (response) {
+        console.log(response);
+        return response.json()
+  
+      })
+      .then(function (cityData) {
+        if (cityData.message == "city not found") {
+          alert("City Not Found")
+          return;
+        }
+        //Conditional to check if the city is already in local storage or not
+        if (!searchHistory.includes(cityInput)) {
+          generateButton(cityInput, city);
+        }
+        console.log(cityData);
+        cityNameEl.text(cityData.name);
+        let weatherIcon = cityData.weather[0].icon;
+        //Get weather icons from api request
+        weatherIconEl.attr("src", "https://openweathermap.org/img/wn/" + weatherIcon + "@2x.png");
+        weatherIconEl.attr("alt", cityData.weather[0].description);
+        temperatureEl.text("Temperature: " + cityData.main.temp + " °F");
+        cloudinessEl.text("Cloudiness: " + cityData.clouds.all + "%");
+        visibilityEl.text("Visibility: " + cityData.visibility + " meters");
+
+      })
+}
+
+//GENERATE BUTTON
+var generateButton = function (cityInput, city) {
+    //Add button and reset textbox
+    var cityButton = $('<button type="button">');
+    cityButton.text(cityInput);
+    cityButton.addClass("bg-sky-600 hover:bg-sky-700 m-2 rounded cityButton");
+    cityButton.attr("data-city", city)
+  
+    searchHistory.push(cityInput);
+    localStorage.setItem("search", JSON.stringify(searchHistory));
+  
+    $('#searchedCities').append(cityButton);
+  
+}
+
+
 //Clear button event listener to clear the search history
 $("#clearButton").on("click", function (event) {
     event.preventDefault();
     localStorage.removeItem("search");
+    location.reload();
 })
+
+//------------------------------------------------------------------------------------------------------------------------------
+//Geolocation
 
 if(localStorage.getItem('lat') == null){
     //obtain Geolocation
@@ -54,7 +144,7 @@ if(localStorage.getItem('lat') == null){
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
         } else {
-            weatherinfo.text("Geolocation is not supported by this browser.");
+            $('#geoError').text("Geolocation is not supported by this browser.");
         }
     }
 
@@ -79,13 +169,7 @@ function getLocationWeather(lat, lon) {
     getWeather(queryUrl);
 }
 
-//Using Search Bar
-function getCityWeather(searchTerm) {
-    let cityQueryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + searchTerm +"&units=imperial&appid=" + apiKey;
-    getWeather(cityQueryUrl)
-}
-
-//Fetch Weather Data
+//Fetch Weather Data widh GEO
 function getWeather(url){
     fetch(url)
         .then(function (cityData) {
@@ -103,7 +187,6 @@ function getWeather(url){
             visibilityEl.text("Visibility: " + cityData.visibility + " meters");
         });
 }
-// getLocation();
 
 
 

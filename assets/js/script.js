@@ -11,7 +11,7 @@ var meteorShower = $('#meteors');
 var con1 = $('#img1');
 var con2 = $('#img2');
 
-$('#m1').text(moment().from("2022/1/13", true));
+$('#m1').text(moment().from("2022/4/22", true));
 $('#m2').text(moment().from("2022/5/07", true));
 $('#m3').text(moment().from("2022/07/30", true));
 $('#m4').text(moment().from("2022/7/27", true));

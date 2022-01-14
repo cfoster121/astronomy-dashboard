@@ -118,13 +118,15 @@ $("#clearButton").on("click", function (event) {
 $('#searchButton').on('click', function () {
     var searchInput = $('#cityText').val();
     if (!searchInput) {
-        $(".search-btns").removeClass("hidden")
-        $(".search-btns").html("Choose a city")
+        $("#modal").removeClass("hidden")
+    $(".search-btns").removeClass("hidden")
+       $("#choose-city").html("Choose a city")
+       $("#choose-city").addClass("text-2xl text-slate-50 capitalize underline decoration-double")
 
-        var ny = $('<input type="button" value="New York" class="bg-cyan-700 hover:bg-cyan-800 m-2 rounded" id="ny"/>');
-        var ber = $('<input type="button" value="Berlin" class="bg-cyan-700 hover:bg-cyan-800 m-2 rounded" id="ber"/>');
-        var cai = $('<input type="button" value="Cairo" class="bg-cyan-700 hover:bg-cyan-800 m-2 rounded" id="cai"/>');
-        var tok = $('<input type="button" value="Tokyo" class="bg-cyan-700 hover:bg-cyan-800 m-2 rounded" id="tok"/>');
+        var ny = $('<input type="button" value="New York" class="bg-cyan-700 hover:bg-cyan-800 hover:ring-2 hover:ring-white m-2 rounded" id="ny"/>');
+        var ber = $('<input type="button" value="Berlin" class="bg-cyan-700 hover:bg-cyan-800 hover:ring-2 hover:ring-white m-2 rounded" id="ber"/>');
+        var cai = $('<input type="button" value="Cairo" class="bg-cyan-700 hover:bg-cyan-800 hover:ring-2 hover:ring-white m-2 rounded" id="cai"/>');
+        var tok = $('<input type="button" value="Tokyo" class="bg-cyan-700 hover:bg-cyan-800 hover:ring-2 hover:ring-white m-2 rounded" id="tok"/>');
 
         $(".search-btns").append(ny);
         $(".search-btns").append(ber);

@@ -43,7 +43,7 @@
     </nav>
     </header>
 
-    <main class="container flex grid-flow-row">
+    <main class="container flex grid-flow-rows">
 
         <div class="search w-1/7 inset-y-0 left-0 text-center text-xl bg-gray-800 text-white 
             rounded ml-4 flex-shrink">
@@ -68,7 +68,7 @@
 
         <div class="w=6/7 ml-10 flex flex-col">
 
-            <div class="flex flex-col border-solid border-gray-800 bg-blue-500 rounded-md text-center font-mono" id="weather">
+            <div class="flex flex-col md:flex-shrink border-solid border-gray-800 bg-blue-500 rounded-md text-center font-mono" id="weather">
                 <br>
                 <h2 class="text-4xl text-slate-100 capitalize underline decoration-double" id="cityName"></h2>
                 <br>
@@ -83,6 +83,14 @@
             <br>
             <br>
 
+            <div class="self-center" id="moon-phase">
+                <h2 class="text-2xl underline decoration-double">Current Moon Phase:</h2>
+                <p id="moon-phase-name"></p>
+                <img id="moon-phase-icon" src="">
+            </div>
+
+            <br>
+
             <!-- Show available constellations based on month -->
             <div class="flex-col self-center" id="constellations">
                 <h2 class="text-2xl underline decoration-double">Constellations Visible This Month:</h2>
@@ -94,13 +102,6 @@
             <br>
             <br>
 
-            <div class="self-center" id="moon-phase">
-                <h2 class="text-2xl underline decoration-double">Current Moon Phase:</h2>
-                <p id="moon-phase-name"></p>
-                <img id="moon-phase-icon" src="">
-            </div>
-
-            <br>
 
             <div class="text-center" id="meteors">
                 <h2 class="text-2xl underline decoration-double">Upcoming Meteor Showers:</h2>

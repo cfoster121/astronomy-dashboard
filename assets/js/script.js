@@ -46,7 +46,7 @@ for(let i = 0 ; i < searchHistory.length ; i++){
     var city = searchHistory[i].replace(" ", "+");
     var cityButton = $('<button type="button">');
     cityButton.text(searchHistory[i]);
-    cityButton.addClass("bg-sky-600 hover:bg-sky-700 m-2 rounded cityButton");
+    cityButton.addClass("bg-sky-600 hover:bg-sky-700 m-2 rounded cityButton capitalize");
     cityButton.attr("data-city", city);
     $('#searchedCities').append(cityButton);
 }
@@ -117,7 +117,7 @@ var generateButton = function (cityInput, city) {
     //Add button and reset textbox
     var cityButton = $('<button type="button">');
     cityButton.text(cityInput);
-    cityButton.addClass("bg-sky-600 hover:bg-sky-700 m-2 rounded cityButton");
+    cityButton.addClass("bg-sky-600 hover:bg-sky-700 m-2 rounded cityButton capitalize");
     cityButton.attr("data-city", city)
   
     searchHistory.push(cityInput);

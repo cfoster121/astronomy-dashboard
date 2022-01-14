@@ -22,20 +22,26 @@
             <div class="hidden w-full sm:block sm:w-auto">
                 <ul class="flex flex-col mt-4 sm:flex-row sm:space-x-8 sm:mt-0 sm:text-sm sm:font-medium ">
                     <li>
-                        <a href="#" class="hover:ring-2 hover:ring-white block py-2 pr-4 pl-3 text-white bg-blue-700 rounded bg-transparent "
+                        <a href="#"
+                            class="hover:ring-2 hover:ring-white block py-2 pr-4 pl-3 text-white bg-blue-700 rounded bg-transparent "
                             aria-current="page" id="apod">Astronomy Photo of the Day</a>
                     </li>
                     <li>
-                        <a href="#weather" class="hover:ring-2 hover:ring-white rounded block text-white py-2 pr-4 pl-3">Weather</a>
+                        <a href="#weather"
+                            class="hover:ring-2 hover:ring-white rounded block text-white py-2 pr-4 pl-3">Weather</a>
                     </li>
                     <li>
-                        <a href="#constellations" class="hover:ring-2 hover:ring-white rounded block text-white py-2 pr-4 pl-3">Constellation</a>
+                        <a href="#constellations"
+                            class="hover:ring-2 hover:ring-white rounded block text-white py-2 pr-4 pl-3">Constellation</a>
                     </li>
                     <li>
-                        <a href="#moon-phase" class="hover:ring-2 hover:ring-white rounded block text-white py-2 pr-4 pl-3">Moon Phase</a>
+                        <a href="#moon-phase"
+                            class="hover:ring-2 hover:ring-white rounded block text-white py-2 pr-4 pl-3">Moon Phase</a>
                     </li>
                     <li>
-                        <a href="#meteors" class="hover:ring-2 hover:ring-white rounded block text-white py-2 pr-4 pl-3">Upcoming Events</a>
+                        <a href="#meteors"
+                            class="hover:ring-2 hover:ring-white rounded block text-white py-2 pr-4 pl-3">Upcoming
+                            Events</a>
                     </li>
                 </ul>
             </div>
@@ -48,27 +54,29 @@
         <div class="search w-1/7 inset-y-0 left-0 text-center text-xl bg-slate-800 text-white 
             rounded ml-4 flex-shrink ">
             <h2 class="py-3 text-2xl underline decoration-double">City Search</h3>
-            <div>
-                <input text="type" class="text-black m-2 rounded" id="cityText">
-                <button class="bg-cyan-600 hover:bg-cyan-700 m-2 rounded" type="button" id="searchButton">
-                    &#x1F50D
+                <div>
+                    <input text="type" class="text-black m-2 rounded" id="cityText">
+                    <button class="bg-cyan-600 hover:bg-cyan-700 m-2 rounded" type="button" id="searchButton">
+                        &#x1F50D
+                    </button>
+                </div>
+
+                <!--We put the search history below-->
+                <div id="searchedCities" class="history flex flex-col-reverse p-2">
+
+                </div>
+
+                <button class="text-sm bg-slate-500 hover:bg-slate-600 m-2 rounded lg:w-40" id="clearButton">Clear
+                    Results
                 </button>
-            </div>
-
-            <!--We put the search history below-->
-            <div id="searchedCities" class="history flex flex-col-reverse p-2">
-
-            </div>
-
-            <button class="text-sm bg-slate-500 hover:bg-slate-600 m-2 rounded lg:w-40" id="clearButton">Clear Results
-            </button>
 
         </div>
 
 
         <div class="w=6/7 ml-10 flex flex-col w-full">
 
-            <div class="flex flex-col md:flex-shrink bg-cyan-700 text-slate-100 rounded-md text-center font-mono w-full" id="weather">
+            <div class="flex flex-col md:flex-shrink bg-cyan-700 text-slate-100 rounded-md text-center font-mono w-full"
+                id="weather">
                 <br>
                 <h2 class="text-4xl text-slate-50 capitalize underline decoration-double" id="cityName"></h2>
                 <br>
@@ -86,10 +94,11 @@
 
             <div class="self-center" id="moon-phase">
                 <h2 class="text-2xl underline decoration-double">Current Moon Phase:</h2>
-                <p id="moon-phase-name"></p>
-                <img id="moon-phase-icon" src="">
+                <p class="text-xl text-center py-2" id="moon-phase-name"></p>
             </div>
+            <img class="self-center" id="moon-phase-icon" src="">
 
+<br>
             <br>
 
             <!-- Show available constellations based on month -->
@@ -104,10 +113,10 @@
             <br>
 
 
-            <div class="text-center" id="meteors">
-                <h2 class="text-2xl underline decoration-double">Upcoming Meteor Showers:</h2>
+            <div class="self-center" id="meteors">
+                <h2 class="text-2xl text-center underline decoration-double">Upcoming Meteor Showers:</h2>
                 <br>
-                <table class="table-auto mx-10" id="meteorTable">
+                <table class="table-auto mx-10 text-left" id="meteorTable">
                     <thead>
                         <tr>
                             <th class="w-auto">Name of Shower</th>

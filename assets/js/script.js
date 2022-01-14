@@ -144,7 +144,7 @@ if(localStorage.getItem('lat') == null){
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
         } else {
-            weatherinfo.text("Geolocation is not supported by this browser.");
+            $('#geoError').text("Geolocation is not supported by this browser.");
         }
     }
 
@@ -187,9 +187,6 @@ function getWeather(url){
             visibilityEl.text("Visibility: " + cityData.visibility + " meters");
         });
 }
-
-
-
 
 
 

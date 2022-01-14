@@ -4,12 +4,12 @@ var cityNameEl = $("#cityName");
 var weatherIconEl = $("#weather-icon");
 var temperatureEl = $("#temperature");
 var cloudinessEl = $("#cloudiness");
-var visibilityEl = $('#visibility');
+var visibilityEl = $("#visibility");
 var apiKey = "723b345acdd52204dfb9a13e95119b61";
 var starchart = $('#starChart');
 var meteorShower = $('#meteors');
-var con1 = $('#img1');
-var con2 = $('#img2');
+var con = $('#img1');
+
 
 $('#m1').text(moment().from("2022/1/13", true));
 $('#m2').text(moment().from("2022/5/07", true));
@@ -28,13 +28,13 @@ $('#apod').on('click', function () {
 var month = moment().format("MMM");
 console.log("month",month);
 if(month == "Dec" || month == "Jan" || month == "Feb"){
-    con1.attr("src",'./assets/Constellation/winter.jpg');
+    con.attr("src",'./assets/Constellation/winter.jpg');
 }else if (month == "Mar" || month == "Apr" || month == "May"){
-    con1.attr("src",'./assets\Constellation/spring.jpg');
+    con.attr("src",'./assets\Constellation/spring.jpg');
 }else if (month == "Jun" || month == "Jul" || month == "Aug"){
-    con1.attr("src",'./assets\Constellation/summer.jpg');
+    con.attr("src",'./assets\Constellation/summer.jpg');
 }else{
-    con1.attr("src",'./assets/Constellation/Autumn.jpg');
+    con.attr("src",'./assets/Constellation/Autumn.jpg');
 }
 
 //--------------------------------------------------------------------------------------------------------------------
@@ -62,6 +62,17 @@ $('#searchButton').on('click', function () {
     var searchInput = $('#cityText').val();
     if(!searchInput){
         return;
+
+    } else {
+        //Push the search input to the search history
+        searchHistory.push(searchInput.val());
+        localStorage.setItem("search", JSON.stringify(searchHistory));
+    };
+    var cityInput = searchInput.val();
+    var searchCity = cityInput.replace(" ", "+");
+    getCityWeather(searchCity);
+});
+
     }
     fetchWeather(searchInput);
     $('#cityText').val("");
@@ -114,6 +125,7 @@ var generateButton = function (cityInput, city) {
     $('#searchedCities').append(cityButton);
   
 }
+
 
 //Clear button event listener to clear the search history
 $("#clearButton").on("click", function (event) {
@@ -297,5 +309,11 @@ $.getJSON("http://dataservice.accuweather.com/locations/v1/cities/geoposition/se
 
 })
 
+
 }
+
+$(document).ready(function() {
+    $('#meteorTable').DataTable();
+});
+
 

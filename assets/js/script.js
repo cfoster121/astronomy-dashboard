@@ -46,7 +46,7 @@ for(let i = 0 ; i < searchHistory.length ; i++){
     var city = searchHistory[i].replace(" ", "+");
     var cityButton = $('<button type="button">');
     cityButton.text(searchHistory[i]);
-    cityButton.addClass("bg-sky-600 hover:bg-sky-700 m-2 rounded cityButton");
+    cityButton.addClass("bg-cyan-700 hover:bg-cyan-800 m-2 rounded cityButton capitalize");
     cityButton.attr("data-city", city);
     $('#searchedCities').append(cityButton);
 }
@@ -61,6 +61,18 @@ $('#searchedCities').on('click', '.cityButton', function () {
 $('#searchButton').on('click', function () {
     var searchInput = $('#cityText').val();
     if(!searchInput){
+        $("#weather").html("Choose a city")
+
+        var ny= $('<input type="button" value="New York" class="btn"/>');
+        var ber= $('<input type="button" value="Berlin" class="btn"/>');
+        var cai= $('<input type="button" value="Cairo" class="btn"/>');
+        var tok= $('<input type="button" value="Tokyo" class="btn"/>');
+
+        $("#weather").append(ny);
+        $("#weather").append(ber);
+        $("#weather").append(cai);
+        $("#weather").append(tok);
+
         return;
     }
     fetchWeather(searchInput);
@@ -105,7 +117,7 @@ var generateButton = function (cityInput, city) {
     //Add button and reset textbox
     var cityButton = $('<button type="button">');
     cityButton.text(cityInput);
-    cityButton.addClass("bg-sky-600 hover:bg-sky-700 m-2 rounded cityButton");
+    cityButton.addClass("bg-cyan-700 hover:bg-cyan-800 m-2 rounded cityButton capitalize");
     cityButton.attr("data-city", city)
   
     searchHistory.push(cityInput);

@@ -134,15 +134,20 @@ $('#searchButton').on('click', function () {
 
         $("#ny").on("click", function (event) {
             fetchWeather("new york city")
+            $(".search-btns").addClass("hidden")
+
         })
         $("#ber").on("click", function (event) {
             fetchWeather("berlin")
+            $(".search-btns").addClass("hidden")
         })
         $("#cai").on("click", function (event) {
             fetchWeather("cairo")
+            $(".search-btns").addClass("hidden")
         })
         $("#tok").on("click", function (event) {
             fetchWeather("tokyo")
+            $(".search-btns").addClass("hidden")
         })
         
 })

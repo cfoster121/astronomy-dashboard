@@ -9,7 +9,6 @@ var apiKey = "723b345acdd52204dfb9a13e95119b61";
 var starchart = $('#starChart');
 var meteorShower = $('#meteors');
 var con1 = $('#img1');
-var con2 = $('#img2');
 
 $('#m1').text(moment().from("2022/4/22", true));
 $('#m2').text(moment().from("2022/5/07", true));
@@ -29,12 +28,31 @@ var month = moment().format("MMM");
 console.log("month", month);
 if (month == "Dec" || month == "Jan" || month == "Feb") {
     con1.attr("src", './assets/Constellation/winter.jpg');
+    $('#cInfo1').html("Orion: Named after the hunter in Greek mythology and is one of the most \
+    recognizable constellations in the sky. ");
+    $('#cInfo2').html("Gemini: The name is latin for 'the twins'. It represents the twins Castor and Pollux\
+    in Greek Mythology. Gemini is known mainly for its two bright stars, Castor and Pollux, which \
+    are the heads of the twins.");
+    
 } else if (month == "Mar" || month == "Apr" || month == "May") {
     con1.attr("src", './assets\Constellation/spring.jpg');
+    $('#cInfo1').html("Ursa Major: Primarily known for the asterism of its main seven stars, often referred to as \
+    the 'Big Dipper'. Ursa Major is significant due to the fact that two if its stars, Dubhe and Merak, can be used\
+    as a navigational pointer towards the north star Polaris");
+    $('#cInfo2').html("Bootes: Coming from Greek, which means ox driver, plowman, or herdsman. \
+    This constellation is home to the third brightest star in the night sky known as Arcturus.");
 } else if (month == "Jun" || month == "Jul" || month == "Aug") {
     con1.attr("src", './assets\Constellation/summer.jpg');
+    $('#cInfo1').html("Hurcules: A constellation named after Hercules, the Roman mythological hero adapted from the Greek hero \
+    Hercales. ");
+    $('#cInfo2').html("Sagittarius: This constellation represents the archer ans is one of the zodiac constellations and its symbol is ♐. \
+    Lying on the Milky Way, its brightest starts form an asterism known as the 'Teapot.'");
 } else {
     con1.attr("src", './assets/Constellation/Autumn.jpg');
+    $('#cInfo1').html("Pegasus: Named after Pegasus, the winged horse in Greek mythology. This constellation, one of the \
+    largest in the sky, is known for the 'Great Square of Pegasus', a familiar asterism in the northern sky. ");
+    $('#cInfo2').html("Pisces: This name means 'the fish' (plural) in latin. It is also one of the zodiac constellations \
+    . Its symbol is ♓.");
 }
 
 //--------------------------------------------------------------------------------------------------------------------

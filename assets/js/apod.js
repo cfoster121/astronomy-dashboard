@@ -3,6 +3,7 @@
 var photo = $('#apodPhoto');
 var caption = $('#apodCaption');
 var back = $("#goBack");
+var explanation = $('#apodExplanation');
 
 back.on('click',function(){
   document.location = 'index.html';
@@ -17,8 +18,11 @@ fetch(requestUrl)
 
 })
 .then(function (data) {
+  console.log(data);
     var image = data.url;
     var imagecaption = data.title;
+    var imageExplanation = data.explanation;
     photo.attr('src',image);
     caption.text(imagecaption);
+    explanation.text(imageExplanation);
 })

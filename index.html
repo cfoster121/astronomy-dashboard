@@ -14,6 +14,7 @@
 
 <body>
     <!-- NAV -->
+    <header>
     <nav class="border-gray-200 px-2 m-4 sm:px-4 py-2.5 rounded bg-slate-800">
         <div class="container flex flex-wrap justify-between items-center mx-auto">
 
@@ -56,7 +57,7 @@
             rounded ml-4 flex-shrink ">
             <h2 class="py-3 text-2xl underline decoration-double">City Search</h2>
             <div>
-                <input text="type" class="text-black m-2 rounded" placeholder="Please enter a city" id="cityText">
+                <input text="type" class="text-black ml-0 rounded" placeholder="Please enter a city" id="cityText">
                 <button class="bg-cyan-600 hover:bg-cyan-700 m-2 rounded" type="button" id="searchButton">
                     &#x1F50D
                 </button>
@@ -72,7 +73,7 @@
 
         </div>
 
-        <div class="w-5/12 ml-10 flex flex-col w-full">
+        <div class="w-6/12 ml-10 flex flex-col w-full">
 
             <div
                 class="hidden search-btns flex flex-col md:flex-shrink bg-cyan-700 text-slate-100 rounded-md text-center font-mono w-full">
@@ -101,6 +102,7 @@
                 <h2 class="text-2xl underline decoration-double">Current Moon Phase:</h2>
                 <p class="t-xl py-2" id="moon-phase-name"></p>
             </div>
+            <div>
             <img class="self-center" id="moon-phase-icon" src="">
                 <br>
                 <p class="text-center italic overline self-center" id="phase-description"></p>
@@ -206,7 +208,8 @@
             <br>
 
         </div>
-        <div class="w-5/12 inset-y-0 right-0 text-center text-xl bg-slate-800 text-white 
+        
+        <div class="w-4/12 inset-y-0 right-0 text-center text-xl bg-slate-800 text-white 
         rounded ml-4 flex-shrink" id="news">
             <div>
                 <h2 class="py-3 text-2xl underline ">News Search</h2>
@@ -217,6 +220,11 @@
             </div>
         </div>
     </main>
+
+    <footer class="text-center border-gray-200 px-2 m-4 sm:px-4 py-2.5 rounded footer">
+        <p>Created with <a>❤️</a> by David Chou, Courtney Fosters & Baofeng Guo</p>
+        <p class="font-normal hover:font-bold">Resources: <a href="https://www.nasa.gov/">NASA</a>   |  <a href="https://www.space.com/">Space.com</a> |  <a href="https://hubblesite.org/">Hubble Space Telescope</a> | <a href="https://www.heavens-above.com/">Heavens-Above</a></p>
+    </footer>
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

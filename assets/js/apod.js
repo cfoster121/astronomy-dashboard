@@ -24,5 +24,5 @@ fetch(requestUrl)
     var imageExplanation = data.explanation;
     photo.attr('src',image);
     caption.text(imagecaption);
-    explanation.text(imageExplanation);
+    explanation.text("Explanation: " + imageExplanation);
 })

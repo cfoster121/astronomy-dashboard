@@ -27,7 +27,7 @@
                             aria-current="page" id="apod">Astronomy Photo of the Day</a>
                     </li>
                     <li>
-                        <a href="#weather" class="hover:ring-2 hover:ring-white rounded block text-white py-2 pr-4 pl-3">Weather</a>
+                        <a href="#weather" class="hover:ring-2 hover:ring-white rounded block text-white py-2 pr-4 pl-3 hidden">Weather</a>
                     </li>
                     <li>
                         <a href="#constellations" class="hover:ring-2 hover:ring-white rounded block text-white py-2 pr-4 pl-3">Constellation</a>
@@ -37,6 +37,9 @@
                     </li>
                     <li>
                         <a href="#meteors" class="hover:ring-2 hover:ring-white rounded block text-white py-2 pr-4 pl-3">Upcoming Events</a>
+                    </li>
+                    <li>
+                        <a href="#resources" class="hover:ring-2 hover:ring-white rounded block text-white py-2 pr-4 pl-3">Resources</a>
                     </li>
                 </ul>
             </div>
@@ -67,6 +70,7 @@
         </div>
 
         <div class="w=6/7 ml-10 flex flex-col w-full">
+            
 
             <div class="hidden search-btns flex flex-col md:flex-shrink bg-cyan-700 text-slate-100 rounded-md text-center font-mono w-full">
                 <div id="choose-city"></div>
@@ -88,29 +92,34 @@
 
             <br>
             <br>
-
-            <div class="self-center text-center" id="moon-phase">
-                <h2 class="text-2xl underline decoration-double text-white">Current Moon Phase:</h2>
+            <div class="grid grid-cols-3">
+              
+            <div class="align-top text-center" id="moon-phase">
+                <h2 class="text-2xl underline decoration-double text-white">Current Moon Phase</h2>
                 <p class="t-xl py-2" id="moon-phase-name"></p>
-                </div>
+             
                 <img class="self-center" id="moon-phase-icon" src="">
+            </div>
             
-
+    
             <br>
 
             <!-- Show available constellations based on month -->
             <div class="flex-col self-center" id="constellations">
-                <h2 class="text-2xl underline decoration-double text-white">Constellations Visible This Month:</h2>
+                <h2 class="text-2xl underline decoration-double text-white">Constellations Visible This Month</h2>
                 <br>
                 <img class="flex-initial shrink" id="img1">
 
             </div>
+        </div>
+        
 
             <br>
             <br>
+        <div class="grid grid-cols-3">
 
             <div class="text-center self-center" id="meteors">
-                <h2 class="text-2xl underline decoration-double text-white">Upcoming Meteor Showers:</h2>
+                <h2 class="text-2xl underline decoration-double text-white">Upcoming Meteor Showers</h2>
                 <br>
                 <table class="table-auto text-left mx-10 bg-slate-200 stripe hover" id="meteorTable">
                     <thead>
@@ -184,8 +193,28 @@
             </div>
             <br>
             <br>
+            <div class="align-top" id="resources">
+                <h2 class="text-2xl underline decoration-double text-white text-center">Resources</h2>
+                <br>
+            <br>
+                <div class="text-left text-white text-xl">
+                <li><a href="https://www.nasa.gov/">NASA (external link)</a></1i>
+                <li><a href="https://www.space.com/">Space.com (external link)</a></1i>
+                <li><a href="hubblesite.org">Hubble Space Telescope (external link)</a></1i>
+                <li><a href="https://www.heavens-above.com/SolarEclipses.aspx?lat=0&lng=0&loc=Unspecified&alt=0&tz=UCT">Upcoming Solar Eclipses (external link)</a></1i>
+                <li><a href="https://www.heavens-above.com/moon.aspx?lat=0&lng=0&loc=Unspecified&alt=0&tz=UCT">Sun (external link)</a></1i>
+                <li><a href="https://www.heavens-above.com/moon.aspx?lat=0&lng=0&loc=Unspecified&alt=0&tz=UCT">Moon (external link)</a></1i>
+                <li><a href="https://www.heavens-above.com/skychart2.aspx?lat=0&lng=0&loc=Unspecified&alt=0&tz=UCT">Interactive sky chart (external link)</a></1i>
+                <li><a href="https://www.heavens-above.com/Comets.aspx?lat=0&lng=0&loc=Unspecified&alt=0&tz=UCT">Comets (external link)</a></1i>
+                
+                
+                </div>
 
+            </div>
         </div>
+    </div>
+
+        
     </main>
 </body>
 

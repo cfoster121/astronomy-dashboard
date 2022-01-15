@@ -340,6 +340,12 @@ function getMoonData(lat, lon) {
 }
 
 
+$.getJSON("https://api.nytimes.com/svc/search/v2/articlesearch.json?q=astronomy&api-key=HtAUGG1rR17RDfuUBsWs6ayNljEGgw5c", function (data) {
+    for (i=0; i<5; i++){
+        $("#nyt").append("<li>" + data.response.docs[i].headline.main + "<br>" + "---" + data.response.docs[i].snippet + "<li>")
+    }
+})
+
 
 $(document).ready( function () {
     $('#meteorTable').DataTable( {

@@ -52,10 +52,9 @@
 
     <main class="container flex grid-flow-rows w-screen">
 
-        <div class="search w-1/7 inset-y-0 left-0 text-center text-xl bg-slate-800 text-white 
+        <div class="search w-2/12 inset-y-0 left-0 text-center text-xl bg-slate-800 text-white 
             rounded ml-4 flex-shrink ">
-            <h2 class="py-3 text-2xl underline decoration-double">City Search</h3>
-
+            <h2 class="py-3 text-2xl underline decoration-double">City Search</h2>
             <div>
                 <input text="type" class="text-black m-2 rounded" placeholder="Please enter a city" id="cityText">
                 <button class="bg-cyan-600 hover:bg-cyan-700 m-2 rounded" type="button" id="searchButton">
@@ -67,14 +66,13 @@
                 <div id="searchedCities" class="history flex flex-col-reverse p-2">
 
                 </div>
-
-                <button class="text-sm bg-slate-500 hover:bg-slate-600 m-2 rounded lg:w-40" id="clearButton">Clear
-                    Results
-                </button>
+            <button class="text-sm bg-slate-500 hover:bg-slate-600 m-2 rounded lg:w-40" id="clearButton">Clear
+                Results
+            </button>
 
         </div>
 
-        <div class="w=6/7 ml-10 flex flex-col w-full">
+        <div class="w-5/12 ml-10 flex flex-col w-full">
 
             <div
                 class="hidden search-btns flex flex-col md:flex-shrink bg-cyan-700 text-slate-100 rounded-md text-center font-mono w-full">
@@ -99,27 +97,34 @@
             <br>
             <br>
 
-            <div class="self-center text-center rounded-full px-20 py-10 bg-violet-400" id="moon-phase">
-                <div>
-                    <h2 class="text-3xl underline decoration-double">Current Moon Phase:</h2>
-                    <br>
-                    <p class="text-2xl pb-7 underline" id="moon-phase-name"></p>
-                </div>
-                <img class="mx-auto" id="moon-phase-icon" src="">
+            <div class="self-center text-center" id="moon-phase">
+                <h2 class="text-2xl underline decoration-double">Current Moon Phase:</h2>
+                <p class="t-xl py-2" id="moon-phase-name"></p>
+            </div>
+            <img class="self-center" id="moon-phase-icon" src="">
                 <br>
                 <p class="text-center italic overline self-center" id="phase-description"></p>
             </div>
 
-
             <br>
 
             <!-- Show available constellations based on month -->
+
             <div class="flex-col self-center" id="constellations">
-                <h2 class="text-2xl underline decoration-double">Constellations Visible This Month:</h2>
+                <h2 class="text-2xl underline decoration-double self-center">Constellations Visible This Month:</h2>
                 <br>
                 <img class="flex-initial shrink" id="img1">
 
             </div>
+            <div class="flex-col self-center" id="constellationInfo">
+                <h3>Noteworthy Constellation</h3>
+                <p id="cInfo1"></p>
+                <p id="cInfo2"></p>
+
+
+            </div>
+
+
 
             <br>
             <br>
@@ -200,6 +205,16 @@
             <br>
             <br>
 
+        </div>
+        <div class="w-5/12 inset-y-0 right-0 text-center text-xl bg-slate-800 text-white 
+        rounded ml-4 flex-shrink" id="news">
+            <div>
+                <h2 class="py-3 text-2xl underline ">News Search</h2>
+                <input text="type" class="text-black m-2 rounded" placeholder="" id="newsText">
+                <button class="bg-cyan-600 hover:bg-cyan-700 m-2 rounded" type="button" id="newsButton">
+                    &#x1F50D
+                </button>
+            </div>
         </div>
     </main>
 </body>

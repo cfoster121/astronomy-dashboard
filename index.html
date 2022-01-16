@@ -15,40 +15,41 @@
 <body>
     <!-- NAV -->
     <header>
-    <nav class="border-gray-200 px-2 m-4 sm:px-4 py-2.5 rounded bg-[url(images/solarsystem.jpeg)]">
-        <div class="container flex flex-wrap justify-between items-center mx-auto">
+        <nav class="border-gray-200 px-2 m-4 sm:px-4 py-2.5 rounded bg-[url(images/solarsystem.jpeg)]">
+            <div class="container flex flex-wrap justify-between items-center mx-auto">
 
-            <span class="self-center text-lg text-white font-semibold whitespace-nowrap dark:text-white">Astronomy
-                Dashboard</span>
+                <span class="self-center text-lg text-white font-semibold whitespace-nowrap dark:text-white">Astronomy
+                    Dashboard</span>
 
-            <div class="hidden w-full sm:block sm:w-auto">
-                <ul class="flex flex-col mt-4 sm:flex-row sm:space-x-8 sm:mt-0 sm:text-sm sm:font-medium ">
-                    <li>
-                        <a href="#"
-                            class="hover:ring-2 hover:ring-white block py-2 pr-4 pl-3 text-white bg-blue-700 rounded bg-transparent "
-                            aria-current="page" id="apod">Astronomy Photo of the Day</a>
-                    </li>
-                    <li>
-                        <a href="#weather"
-                            class="hover:ring-2 hover:ring-white rounded block text-white py-2 pr-4 pl-3">Weather</a>
-                    </li>
-                    <li>
-                        <a href="#constellations"
-                            class="hover:ring-2 hover:ring-white rounded block text-white py-2 pr-4 pl-3">Constellation</a>
-                    </li>
-                    <li>
-                        <a href="#moon-phase"
-                            class="hover:ring-2 hover:ring-white rounded block text-white py-2 pr-4 pl-3">Moon Phase</a>
-                    </li>
-                    <li>
-                        <a href="#meteors"
-                            class="hover:ring-2 hover:ring-white rounded block text-white py-2 pr-4 pl-3">Upcoming
-                            Events</a>
-                    </li>
-                </ul>
+                <div class="hidden w-full sm:block sm:w-auto">
+                    <ul class="flex flex-col mt-4 sm:flex-row sm:space-x-8 sm:mt-0 sm:text-sm sm:font-medium ">
+                        <li>
+                            <a href="#"
+                                class="hover:ring-2 hover:ring-white block py-2 pr-4 pl-3 text-white bg-blue-700 rounded bg-transparent "
+                                aria-current="page" id="apod">Astronomy Photo of the Day</a>
+                        </li>
+                        <li>
+                            <a href="#weather"
+                                class="hover:ring-2 hover:ring-white rounded block text-white py-2 pr-4 pl-3">Weather</a>
+                        </li>
+                        <li>
+                            <a href="#constellations"
+                                class="hover:ring-2 hover:ring-white rounded block text-white py-2 pr-4 pl-3">Constellation</a>
+                        </li>
+                        <li>
+                            <a href="#moon-phase"
+                                class="hover:ring-2 hover:ring-white rounded block text-white py-2 pr-4 pl-3">Moon
+                                Phase</a>
+                        </li>
+                        <li>
+                            <a href="#meteors"
+                                class="hover:ring-2 hover:ring-white rounded block text-white py-2 pr-4 pl-3">Upcoming
+                                Events</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
     </header>
 
     <main class="container flex grid-flow-rows w-screen">
@@ -63,10 +64,10 @@
                 </button>
             </div>
 
-                <!--We put the search history below-->
-                <div id="searchedCities" class="history flex flex-col-reverse p-2">
+            <!--We put the search history below-->
+            <div id="searchedCities" class="history flex flex-col-reverse p-2">
 
-                </div>
+            </div>
             <button class="text-sm bg-slate-500 hover:bg-slate-600 m-2 rounded lg:w-40" id="clearButton">Clear
                 Results
             </button>
@@ -82,10 +83,8 @@
             </div>
 
             <div class="flex flex-col md:flex-shrink text-slate-100 rounded-md text-center font-mono w-full
-            
-            bg-[#115268] border-2 border-[#0f5d77]/10 shadow-lg shadow-sky-800/60"
-
-
+    
+            bg-gradient-to-t from-[#115268] to-[#177291] border-2 border-[#0f5d77]/10 shadow-lg shadow-sky-800/60"
                 id="weather">
                 <br>
                 <h2 class="text-4xl text-slate-50 capitalize underline decoration-double" id="cityName"></h2>
@@ -103,35 +102,37 @@
             <br>
 
             <!--Displays current moon phase and info about phase -->
-            <div class="self-center text-center rounded-full px-20 py-10 bg-[#b09bc7] border-2 border-[#8048bb]/10 shadow-lg shadow-violet-700/60" id="moon-phase">
+            <div class="self-center text-center rounded-full px-20 py-10 bg-gradient-to-t from-[#976ac7] to-[#b09bc7] border-2 border-[#8048bb]/10 shadow-lg shadow-violet-700/60"
+                id="moon-phase">
                 <div>
                     <h2 class="text-3xl underline decoration-double">Current Moon Phase:</h2>
                     <br>
-                    <p class="text-2xl text-black/70 pb-7 underline" id="moon-phase-name"></p>
+                    <p class="text-2xl text-black/80 pb-7 underline" id="moon-phase-name"></p>
                 </div>
                 <img class="mx-auto" id="moon-phase-icon" src="">
                 <br>
-                <p class="text-center text-black/50 italic overline self-center" id="phase-description"></p>
+                <p class="text-center text-black/60 italic overline self-center" id="phase-description"></p>
             </div>
 
+            <br>
             <br>
 
             <!-- Show available constellations based on month -->
 
-            <div class="flex-col self-center" id="constellations">
-                <h2 class="text-2xl underline decoration-double self-center">Constellations Visible This Month:</h2>
-                <br>
-                <img class="flex-initial shrink" id="img1">
+            <div class="container flex-col text-center self-center rounded-md bg-gradient-to-t from-[#115268] to-[#177291] border-2 border-[#0f5d77]/10 shadow-lg shadow-sky-800/60" id="constellations">
+                <div>
+                <h2 class="py-10 text-3xl text-slate-200 underline decoration-double self-center">Constellations Visible This Month:</h2>
+                <img class="mx-auto pb-10 flex-initial shrink" id="img1">
+                </div>
+
+            
+            <div class="flex-col self-center text-justify" id="constellationInfo">
+                <h3 class="text-center text-2xl text-slate-200 underline  decoration-double pb-8">Noteworthy Constellations</h3>
+                <p class="text-l text-slate-200 px-5 pb-5" id="cInfo1"></p>
+                <p class="text-l text-slate-200 px-5 pb-10" id="cInfo2"></p>
+            </div>
 
             </div>
-            <div class="flex-col self-center" id="constellationInfo">
-                <h3>Noteworthy Constellation</h3>
-                <p id="cInfo1"></p>
-                <p id="cInfo2"></p>
-
-
-            </div>
-
 
 
             <br>
@@ -214,7 +215,7 @@
             <br>
 
         </div>
-        
+
         <div class="w-4/12 inset-y-0 right-0 text-center text-xl bg-[url(images/galaxy.jpeg)] text-white 
         rounded ml-4 flex-shrink" id="news">
             <div>
@@ -229,7 +230,9 @@
 
     <footer class="text-center border-gray-200 px-2 m-4 sm:px-4 py-2.5 rounded footer">
         <p>Created with <a>❤️</a> by David Chou, Courtney Fosters & Baofeng Guo</p>
-        <p class="font-normal hover:font-bold">Resources: <a href="https://www.nasa.gov/">NASA</a>   |  <a href="https://www.space.com/">Space.com</a> |  <a href="https://hubblesite.org/">Hubble Space Telescope</a> | <a href="https://www.heavens-above.com/">Heavens-Above</a></p>
+        <p class="font-normal hover:font-bold">Resources: <a href="https://www.nasa.gov/">NASA</a> | <a
+                href="https://www.space.com/">Space.com</a> | <a href="https://hubblesite.org/">Hubble Space
+                Telescope</a> | <a href="https://www.heavens-above.com/">Heavens-Above</a></p>
     </footer>
 </body>
 

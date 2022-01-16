@@ -363,14 +363,14 @@ function getMoonData(lat, lon) {
 //News search section
 
 
-var newsHistoryEl = $("#searchedNews")
+var newsListEl = $("#latestNews")
 
 //New York Times articles API key
 var newsAPIkey = "HtAUGG1rR17RDfuUBsWs6ayNljEGgw5c";
 
 //Fetch news from NYT api
 
-var newsQueryUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=astronomy&api-key=" + newsAPIkey;
+var newsQueryUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=astronomy&nasa&outerspace&api-key=" + newsAPIkey;
 fetch(newsQueryUrl)
 .then(function (newsData) {
     console.log(newsData.status);
@@ -382,10 +382,10 @@ fetch(newsQueryUrl)
     var newsUrl = newsData.response.docs[i].web_url;
     var newsTitle = newsData.response.docs[i].abstract;
     //Use tailwind group list: https://flowbite.com/docs/components/list-group/
-    let searchedNewsEl = $('<li>');
-    searchedNewsEl.append([i+1],". <a href='" + newsUrl + "' target='_blank'>" + newsTitle + "</a>");
-    searchedNewsEl.append($('<br>'));
-    newsHistoryEl.append(searchedNewsEl);
+    let latestNewsEl = $('<li>');
+    latestNewsEl.append([i+1],". <a href='" + newsUrl + "' target='_blank'>" + newsTitle + "</a>");
+    latestNewsEl.append($('<br>'));
+    newsListEl.append(latestNewsEl);
 }
 });
 

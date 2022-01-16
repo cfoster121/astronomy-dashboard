@@ -394,7 +394,7 @@ fetch(newsQueryUrl)
     var newsUrl = newsData.response.docs[i].web_url;
     var newsTitle = newsData.response.docs[i].abstract;
     //Use tailwind group list: https://flowbite.com/docs/components/list-group/
-    let searchedNewsEl = document.createElement('li');
+    let searchedNewsEl = $('<li>');
     searchedNewsEl.append("<a href='" + newsUrl + "'>" + newsTitle + "</a>");
     newsHistoryEl.append(searchedNewsEl);
 }
@@ -411,11 +411,10 @@ $("#clearNewsButton").on("click", function () {
 
 
 
-// $(document).ready( function () {
-//     $('#meteorTable').DataTable( {
-//         "ordering": false,
-//         searchPanes: true
-//     } );
-// } );
-// $('#meteorTable').searchPanes.resizePanes();
+$(document).ready( function () {
+    $('#meteorTable').DataTable( {
+        "ordering": false,
+    } );
+} );
+
 

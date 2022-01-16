@@ -81,7 +81,11 @@
                 <div class="flex flex-col" id="city-names"></div>
             </div>
 
-            <div class="flex flex-col md:flex-shrink bg-cyan-700 text-slate-100 rounded-md text-center font-mono w-full"
+            <div class="flex flex-col md:flex-shrink text-slate-100 rounded-md text-center font-mono w-full
+            
+            bg-[#115268] border-2 border-[#0f5d77]/10 shadow-lg shadow-sky-800/60"
+
+
                 id="weather">
                 <br>
                 <h2 class="text-4xl text-slate-50 capitalize underline decoration-double" id="cityName"></h2>
@@ -99,7 +103,7 @@
             <br>
 
             <!--Displays current moon phase and info about phase -->
-            <div class="self-center text-center rounded-full px-20 py-10 bg-[#b09bc7] border-2 border-[#8048bb]/10 shadow-2xl shadow-indigo-700/60" id="moon-phase">
+            <div class="self-center text-center rounded-full px-20 py-10 bg-[#b09bc7] border-2 border-[#8048bb]/10 shadow-lg shadow-violet-500/60" id="moon-phase">
                 <div>
                     <h2 class="text-3xl underline decoration-double">Current Moon Phase:</h2>
                     <br>
@@ -214,7 +218,7 @@
         <div class="w-4/12 inset-y-0 right-0 text-center text-xl bg-[#24346c] text-white 
         rounded ml-4 flex-shrink" id="news">
             <div>
-                <h2 class="py-3 text-2xl underline ">News Search</h2>
+                <h2 class="py-3 text-2xl underline decoration-double">News Search</h2>
                 <input text="type" class="text-black m-2 rounded" placeholder="" id="newsText">
                 <button class="bg-cyan-600 hover:bg-cyan-700 m-2 rounded" type="button" id="newsButton">
                     &#x1F50D

@@ -367,22 +367,10 @@ var newsHistoryEl = $("#searchedNews")
 
 //New York Times articles API key
 var newsAPIkey = "HtAUGG1rR17RDfuUBsWs6ayNljEGgw5c";
-//News search button event listener
-$('#newsButton').on('click', function () {
-    var newsInput = $("#newsText").val();
-    if (newsInput === ""){
-        alert("Please enter a keyword");
-    } else {
-        localStorage.removeItem("newsSearch");
-        fetchNews(newsInput);
-        }
-        
-})
-
 
 //Fetch news from NYT api
-function fetchNews(input){ 
-var newsQueryUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + input +"&api-key=" + newsAPIkey;
+
+var newsQueryUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=astronomy&api-key=" + newsAPIkey;
 fetch(newsQueryUrl)
 .then(function (newsData) {
     console.log(newsData.status);
@@ -395,17 +383,14 @@ fetch(newsQueryUrl)
     var newsTitle = newsData.response.docs[i].abstract;
     //Use tailwind group list: https://flowbite.com/docs/components/list-group/
     let searchedNewsEl = $('<li>');
-    searchedNewsEl.append("<a href='" + newsUrl + "'>" + newsTitle + "</a>");
+    searchedNewsEl.append([i+1],". <a href='" + newsUrl + "' target='_blank'>" + newsTitle + "</a>");
+    searchedNewsEl.append($('<br>'));
     newsHistoryEl.append(searchedNewsEl);
 }
 });
-}
 
-//News clear button event listener
-$("#clearNewsButton").on("click", function () {
-    localStorage.removeItem("newsSearch");
-    location.reload();
-})
+
+
 
 
 

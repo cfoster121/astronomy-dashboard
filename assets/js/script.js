@@ -383,7 +383,7 @@ fetch(newsQueryUrl)
     var newsTitle = newsData.response.docs[i].abstract;
     //Use tailwind group list: https://flowbite.com/docs/components/list-group/
     let searchedNewsEl = $('<li>');
-    searchedNewsEl.append([i+1],". <a href='" + newsUrl + "'>" + newsTitle + "</a>");
+    searchedNewsEl.append([i+1],". <a href='" + newsUrl + "' target='_blank'>" + newsTitle + "</a>");
     searchedNewsEl.append($('<br>'));
     newsHistoryEl.append(searchedNewsEl);
 }

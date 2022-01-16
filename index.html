@@ -119,18 +119,21 @@
 
             <!-- Show available constellations based on month -->
 
-            <div class="container flex-col text-center self-center rounded-md bg-gradient-to-t from-[#115268] to-[#177291] border-2 border-[#0f5d77]/10 shadow-lg shadow-sky-800/60" id="constellations">
+            <div class="container flex-col text-center self-center rounded-md bg-gradient-to-t from-[#115268] to-[#177291] border-2 border-[#0f5d77]/10 shadow-lg shadow-sky-800/60"
+                id="constellations">
                 <div>
-                <h2 class="py-10 text-3xl text-slate-200 underline decoration-double self-center">Constellations Visible This Month:</h2>
-                <img class="mx-auto pb-10 flex-initial shrink" id="img1">
+                    <h2 class="py-10 text-3xl text-slate-200 underline decoration-double self-center">Constellations
+                        Visible This Month:</h2>
+                    <img class="mx-auto pb-10 flex-initial shrink" id="img1">
                 </div>
 
-            
-            <div class="flex-col self-center text-justify" id="constellationInfo">
-                <h3 class="text-center text-2xl text-slate-200 underline  decoration-double pb-8">Noteworthy Constellations</h3>
-                <p class="text-l text-slate-200 px-5 pb-5" id="cInfo1"></p>
-                <p class="text-l text-slate-200 px-5 pb-10" id="cInfo2"></p>
-            </div>
+
+                <div class="flex-col self-center text-justify" id="constellationInfo">
+                    <h3 class="text-center text-2xl text-slate-200 underline  decoration-double pb-8">Noteworthy
+                        Constellations</h3>
+                    <p class="text-l text-slate-200 px-5 pb-5" id="cInfo1"></p>
+                    <p class="text-l text-slate-200 px-5 pb-10" id="cInfo2"></p>
+                </div>
 
             </div>
 
@@ -138,78 +141,79 @@
             <br>
             <br>
 
-            <div class="text-center self-center" id="meteors">
-                <h2 class="text-2xl underline decoration-double">Upcoming Meteor Showers:</h2>
+            <div class="container self-center text-center  rounded-md px-20 py-10 bg-gradient-to-t from-[#976ac7] to-[#b09bc7] border-2 border-[#8048bb]/10 shadow-lg shadow-violet-700/60"
+                id="meteors">
+                <h2 class="text-3xl underline decoration-double">Upcoming Meteor Showers:</h2>
                 <br>
-                <table class="table-auto text-left mx-10 stripe hover" id="meteorTable">
-                    <thead>
-                        <tr>
-                            <th class="w-auto">Name of Shower</th>
-                            <th>Date</th>
-                            <th>Time</th>
-                            <th>Constellation</th>
-                            <th>Time Remaining</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Lyrids</td>
-                            <td>April 22</td>
-                            <td>4:00 AM</td>
-                            <td>Lyra</td>
-                            <td id="m1"></td>
-                        </tr>
-                        <tr>
-                            <td>eta Aquariids</td>
-                            <td>May 07</td>
-                            <td>4:00 AM</td>
-                            <td>Aquarius</td>
-                            <td id="m2"></td>
-                        </tr>
-                        <tr>
-                            <td>Southern Delta Aquariids</td>
-                            <td>July 30</td>
-                            <td>3:00 AM</td>
-                            <td>Aquarius</td>
-                            <td id="m3"></td>
-                        </tr>
-                        <tr>
-                            <td>Alpha Capricornids</td>
-                            <td>July 27</td>
-                            <td>1:00 AM</td>
-                            <td>Capricorn</td>
-                            <td id="m4"></td>
-                        </tr>
-                        <tr>
-                            <td>Perseids</td>
-                            <td>Aug 12</td>
-                            <td>4:00 AM</td>
-                            <td>Perseus</td>
-                            <td id="m5"></td>
-                        </tr>
-                        <tr>
-                            <td>Orionids</td>
-                            <td>October 22</td>
-                            <td>5:00 AM</td>
-                            <td>Orion</td>
-                            <td id="m6"></td>
-                        </tr>
-                        <tr>
-                            <td>Southern Taurids</td>
-                            <td>October 29</td>
-                            <td>1:00 AM</td>
-                            <td>Taurus</td>
-                            <td id="m7"></td>
-                        </tr>
-                        <tr>
-                            <td>Northern Taurids</td>
-                            <td>Novermber 11</td>
-                            <td>Midnight</td>
-                            <td>Taurus</td>
-                            <td id="m8"></td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <table class="mx-auto table-auto text-left mx-10 stripe hover" id="meteorTable">
+                        <thead>
+                            <tr>
+                                <th class="w-auto">Name of Shower</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Constellation</th>
+                                <th>Time Remaining</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Lyrids</td>
+                                <td>April 22</td>
+                                <td>4:00 AM</td>
+                                <td>Lyra</td>
+                                <td id="m1"></td>
+                            </tr>
+                            <tr>
+                                <td>eta Aquariids</td>
+                                <td>May 07</td>
+                                <td>4:00 AM</td>
+                                <td>Aquarius</td>
+                                <td id="m2"></td>
+                            </tr>
+                            <tr>
+                                <td>Southern Delta Aquariids</td>
+                                <td>July 30</td>
+                                <td>3:00 AM</td>
+                                <td>Aquarius</td>
+                                <td id="m3"></td>
+                            </tr>
+                            <tr>
+                                <td>Alpha Capricornids</td>
+                                <td>July 27</td>
+                                <td>1:00 AM</td>
+                                <td>Capricorn</td>
+                                <td id="m4"></td>
+                            </tr>
+                            <tr>
+                                <td>Perseids</td>
+                                <td>Aug 12</td>
+                                <td>4:00 AM</td>
+                                <td>Perseus</td>
+                                <td id="m5"></td>
+                            </tr>
+                            <tr>
+                                <td>Orionids</td>
+                                <td>October 22</td>
+                                <td>5:00 AM</td>
+                                <td>Orion</td>
+                                <td id="m6"></td>
+                            </tr>
+                            <tr>
+                                <td>Southern Taurids</td>
+                                <td>October 29</td>
+                                <td>1:00 AM</td>
+                                <td>Taurus</td>
+                                <td id="m7"></td>
+                            </tr>
+                            <tr>
+                                <td>Northern Taurids</td>
+                                <td>Novermber 11</td>
+                                <td>Midnight</td>
+                                <td>Taurus</td>
+                                <td id="m8"></td>
+                            </tr>
+                        </tbody>
+                    </table>
             </div>
             <br>
             <br>

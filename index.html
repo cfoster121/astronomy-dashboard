@@ -15,7 +15,7 @@
 <body>
     <!-- NAV -->
     <header>
-    <nav class="border-gray-200 px-2 m-4 sm:px-4 py-2.5 rounded bg-slate-800">
+    <nav class="border-gray-200 px-2 m-4 sm:px-4 py-2.5 rounded bg-[#24346c]">
         <div class="container flex flex-wrap justify-between items-center mx-auto">
 
             <span class="self-center text-lg text-white font-semibold whitespace-nowrap dark:text-white">Astronomy
@@ -53,7 +53,7 @@
 
     <main class="container flex grid-flow-rows w-screen">
 
-        <div class="search w-2/12 inset-y-0 left-0 text-center text-xl bg-slate-800 text-white 
+        <div class="search w-2/12 inset-y-0 left-0 text-center text-xl bg-[#24346c] text-white 
             rounded ml-4 flex-shrink ">
             <h2 class="py-3 text-2xl underline decoration-double">City Search</h2>
             <div>
@@ -98,14 +98,16 @@
             <br>
             <br>
 
-            <div class="self-center text-center" id="moon-phase">
-                <h2 class="text-2xl underline decoration-double">Current Moon Phase:</h2>
-                <p class="t-xl py-2" id="moon-phase-name"></p>
-            </div>
-            <div>
-            <img class="self-center" id="moon-phase-icon" src="">
+            <!--Displays current moon phase and info about phase -->
+            <div class="self-center text-center rounded-full px-20 py-10 bg-[#b09bc7] border-2 border-[#8048bb]/10 shadow-2xl shadow-indigo-700/60" id="moon-phase">
+                <div>
+                    <h2 class="text-3xl underline decoration-double">Current Moon Phase:</h2>
+                    <br>
+                    <p class="text-2xl text-black/70 pb-7 underline" id="moon-phase-name"></p>
+                </div>
+                <img class="mx-auto" id="moon-phase-icon" src="">
                 <br>
-                <p class="text-center italic overline self-center" id="phase-description"></p>
+                <p class="text-center text-black/50 italic overline self-center" id="phase-description"></p>
             </div>
 
             <br>
@@ -209,7 +211,7 @@
 
         </div>
         
-        <div class="w-4/12 inset-y-0 right-0 text-center text-xl bg-slate-800 text-white 
+        <div class="w-4/12 inset-y-0 right-0 text-center text-xl bg-[#24346c] text-white 
         rounded ml-4 flex-shrink" id="news">
             <div>
                 <h2 class="py-3 text-2xl underline ">News Search</h2>

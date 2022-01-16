@@ -66,7 +66,7 @@ for (let i = 0; i < searchHistory.length; i++) {
     var city = searchHistory[i].replace(" ", "+");
     var cityButton = $('<button type="button">');
     cityButton.text(searchHistory[i]);
-    cityButton.addClass("bg-cyan-700 hover:bg-cyan-800 m-2 rounded cityButton capitalize");
+    cityButton.addClass("bg-[#b1c1f8] hover:bg-cyan-800 m-2 rounded cityButton capitalize");
     cityButton.attr("data-city", city);
     $('#searchedCities').append(cityButton);
 }

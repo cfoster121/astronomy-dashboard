@@ -13,9 +13,10 @@
 </head>
 
 <!-- Page background color -->
+
 <body class="bg-slate-400/50">
 
-<!-- NAV -->
+    <!-- NAV -->
     <header>
         <nav class="px-2 m-4 sm:px-4 py-2.5 rounded bg-[url(images/purple.jpeg)]">
             <div class="container flex flex-wrap justify-between items-center mx-auto">
@@ -55,12 +56,13 @@
         </nav>
     </header>
 
-<!-- Page body -->
+    <!-- Page body -->
     <main class="container flex grid-flow-row min-w-full">
 
 
-    <!-- City Search bar -->
-        <div class="search w-2/12 inset-y-0 left-0 text-center text-xl bg-[url(images/galaxy.jpeg)] text-white rounded ml-4 flex-shrink ">
+        <!-- City Search bar -->
+        <div
+            class="search w-2/12 inset-y-0 left-0 text-center text-xl bg-[url(images/galaxy.jpeg)] text-white rounded ml-4 flex-shrink ">
             <h2 class="py-3 text-2xl underline decoration-double">City Search</h2>
             <div>
                 <input text="type" class="text-black ml-0 rounded" placeholder="Please enter a city" id="cityText">
@@ -70,7 +72,7 @@
                 </button>
             </div>
 
-        <!--We put the search history below-->
+            <!--We put the search history below-->
             <div id="searchedCities" class="history flex flex-col-reverse p-2">
 
             </div>
@@ -82,22 +84,22 @@
 
         <div class="w-6/12 ml-10 flex flex-col w-full">
 
-        <!-- City search buttons that appear only after entering invalid search input -->
+            <!-- City search buttons that appear only after entering invalid search input -->
             <div
                 class="hidden search-btns flex flex-col md:flex-shrink bg-[url(images/galaxy.jpeg)] text-slate-100 rounded-md text-center font-mono w-full">
                 <div id="choose-city"></div>
                 <div class="flex flex-col" id="city-names"></div>
             </div>
 
-        <!-- Weather Container -->
+            <!-- Weather Container -->
             <div class="flex flex-col md:flex-shrink text-slate-100 rounded-md text-center font-mono w-full bg-gradient-to-t from-fuchsia-700 to-[#b965c4] border-b border-fuchsia-700 shadow-lg shadow-fuchsia-800/70"
                 id="weather">
                 <br>
-                <h2 class="text-4xl text-slate-50 capitalize underline decoration-double" id="cityName"></h2>
+                <h2 class="text-4xl  text-slate-50 capitalize underline decoration-double" id="cityName"></h2>
                 <br>
                 <img id="weather-icon" class="self-center w-16 h-16"></img>
 
-            <!--Current weather conditions-->
+                <!--Current weather conditions-->
                 <p id="temperature"></p>
                 <p id="cloudiness"></p>
                 <p id="visibility"></p>
@@ -107,7 +109,7 @@
             <br>
             <br>
 
-        <!--Displays current moon phase and info about phase -->
+            <!--Displays current moon phase and info about phase -->
             <div class="self-center text-center rounded-full px-20 py-10 bg-gradient-to-t from-violet-500 to-[#af93f1] border-b border-violet-500 shadow-lg shadow-violet-700/60"
                 id="moon-phase">
                 <div>
@@ -124,7 +126,7 @@
             <br>
 
 
-        <!-- Show available constellations based on month -->
+            <!-- Show available constellations based on month -->
             <div class="container flex-col text-center self-center rounded-md bg-gradient-to-t bg-gradient-to-t from-fuchsia-700 to-[#b965c4] border-b border-fuchsia-700 shadow-lg shadow-fuchsia-800/70"
                 id="constellations">
                 <div>
@@ -147,7 +149,7 @@
             <br>
             <br>
 
-        <!-- Table of Upcoming Meteor Showers -->
+            <!-- Table of Upcoming Meteor Showers -->
             <div class="container self-center text-center rounded-md py-10 bg-gradient-to-t from-violet-500 to-[#af93f1] border-b border-violet-500 shadow-lg shadow-violet-700/60"
                 id="meteors">
                 <h2 class="text-3xl underline decoration-double">Upcoming Meteor Showers:</h2>
@@ -228,7 +230,7 @@
         </div>
 
 
-    <!-- News Article API -->
+        <!-- News Article API -->
         <div class="w-4/12 inset-y-0 text-center text-xl bg-[url(images/galaxy.jpeg)] text-white 
         rounded ml-10 mr-4 flex-shrink" id="news">
             <div>
@@ -242,20 +244,22 @@
                 <button class="bg-cyan-600 hover:bg-cyan-700 m-2 rounded" id="clearNewsButton">Clear History</button>
             </div>
 
-             <!--We put the news search history below-->
-             <ul id="searchedNews" class="list-none text-4xl text-slate-50 underline decoration-double"><ul>
+            <!--We put the news search history below-->
+            <ul id="searchedNews" class="list-none text-4xl text-slate-50 underline decoration-double">
+                <ul>
         </div>
     </main>
 
-<!-- Footer -->
+    <!-- Footer -->
     <footer class="text-center border-gray-200 px-2 m-4 sm:px-4 py-2.5 rounded footer">
         <p>Created with <a>❤️</a> by David Chou, Courtney Fosters & Baofeng Guo</p>
 
-        <p><a class="font-bold">Resources: </a><a class="font-normal hover:font-bold" href="https://www.nasa.gov/">NASA</a>   |  <a class="font-normal hover:font-bold" href="https://www.space.com/">Space.com</a> |  <a class="font-normal hover:font-bold" href="https://hubblesite.org/">Hubble Space Telescope</a> | <a class="font-normal hover:font-bold" href="https://www.heavens-above.com/">Heavens-Above</a></p>
-
-        <p class="font-normal hover:font-bold">Resources: <a href="https://www.nasa.gov/">NASA</a> | <a
-                href="https://www.space.com/">Space.com</a> | <a href="https://hubblesite.org/">Hubble Space
-                Telescope</a> | <a href="https://www.heavens-above.com/">Heavens-Above</a></p>
+        <p><a class="font-bold">Resources: </a><a class="font-normal hover:font-bold"
+                href="https://www.nasa.gov/">NASA</a> | <a class="font-normal hover:font-bold"
+                href="https://www.space.com/">Space.com</a> | <a class="font-normal hover:font-bold"
+                href="https://hubblesite.org/">Hubble Space Telescope</a> | <a class="font-normal hover:font-bold"
+                href="https://www.heavens-above.com/">Heavens-Above</a>
+        </p>
 
     </footer>
 </body>

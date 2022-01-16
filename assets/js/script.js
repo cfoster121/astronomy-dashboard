@@ -373,6 +373,7 @@ $('#newsButton').on('click', function () {
     if (newsInput === ""){
         alert("Please enter a keyword");
     } else {
+        localStorage.removeItem("newsSearch");
         fetchNews(newsInput);
         }
         
@@ -410,9 +411,11 @@ $("#clearNewsButton").on("click", function () {
 
 
 
-$(document).ready( function () {
-    $('#meteorTable').DataTable( {
-        "ordering": false
-    } );
-} );
+// $(document).ready( function () {
+//     $('#meteorTable').DataTable( {
+//         "ordering": false,
+//         searchPanes: true
+//     } );
+// } );
+// $('#meteorTable').searchPanes.resizePanes();
 

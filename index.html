@@ -209,21 +209,25 @@
 
         </div>
         
-        <div class="w-4/12 inset-y-0 right-0 text-center text-xl bg-slate-800 text-white 
+        <div class="newsSearch w-4/12 inset-y-0 right-0 text-center text-xl bg-slate-800 text-white 
         rounded ml-4 flex-shrink" id="news">
             <div>
                 <h2 class="py-3 text-2xl underline ">News Search</h2>
-                <input text="type" class="text-black m-2 rounded" placeholder="" id="newsText">
+                <input text="type" class="text-black m-2 rounded" placeholder="Try a keyword like NASA" id="newsText">
                 <button class="bg-cyan-600 hover:bg-cyan-700 m-2 rounded" type="button" id="newsButton">
                     &#x1F50D
                 </button>
+                <button class="bg-cyan-600 hover:bg-cyan-700 m-2 rounded" id="clearNewsButton">Clear History</button>
             </div>
+
+             <!--We put the news search history below-->
+             <ul id="searchedNews" class="list-none text-4xl text-slate-50 underline decoration-double"><ul>
         </div>
     </main>
 
     <footer class="text-center border-gray-200 px-2 m-4 sm:px-4 py-2.5 rounded footer">
         <p>Created with <a>❤️</a> by David Chou, Courtney Fosters & Baofeng Guo</p>
-        <p class="font-normal hover:font-bold">Resources: <a href="https://www.nasa.gov/">NASA</a>   |  <a href="https://www.space.com/">Space.com</a> |  <a href="https://hubblesite.org/">Hubble Space Telescope</a> | <a href="https://www.heavens-above.com/">Heavens-Above</a></p>
+        <p><a class="font-bold">Resources: </a><a class="font-normal hover:font-bold" href="https://www.nasa.gov/">NASA</a>   |  <a class="font-normal hover:font-bold" href="https://www.space.com/">Space.com</a> |  <a class="font-normal hover:font-bold" href="https://hubblesite.org/">Hubble Space Telescope</a> | <a class="font-normal hover:font-bold" href="https://www.heavens-above.com/">Heavens-Above</a></p>
     </footer>
 </body>
 

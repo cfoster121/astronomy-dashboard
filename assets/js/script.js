@@ -68,7 +68,7 @@ for (let i = 0; i < searchHistory.length; i++) {
     var city = searchHistory[i].replace(" ", "+");
     var cityButton = $('<button type="button">');
     cityButton.text(searchHistory[i]);
-    cityButton.addClass("bg-cyan-700 hover:bg-cyan-800 m-2 rounded cityButton capitalize");
+    cityButton.addClass("bg-violet-700/70 border border-violet-700  hover:bg-violet-600 m-2 rounded cityButton capitalize");
     cityButton.attr("data-city", city);
     $('#searchedCities').append(cityButton);
 }
@@ -101,10 +101,10 @@ $('#searchButton').on('click', function () {
         $("#choose-city").html("Unable to find city" + "<br>" + "<br>" + "Choose city below")
         $("#choose-city").addClass("text-2xl text-slate-50 capitalize underline decoration-double")
 
-        var ny = $('<input type="button" value="New York" class="bg-cyan-700 hover:bg-cyan-800 hover:ring-2 hover:ring-white m-2 rounded" id="ny"/>');
-        var ber = $('<input type="button" value="Berlin" class="bg-cyan-700 hover:bg-cyan-800 hover:ring-2 hover:ring-white m-2 rounded" id="ber"/>');
-        var cai = $('<input type="button" value="Cairo" class="bg-cyan-700 hover:bg-cyan-800 hover:ring-2 hover:ring-white m-2 rounded" id="cai"/>');
-        var tok = $('<input type="button" value="Tokyo" class="bg-cyan-700 hover:bg-cyan-800 hover:ring-2 hover:ring-white m-2 rounded" id="tok"/>');
+        var ny = $('<input type="button" value="New York" class="bg-violet-700/70 border border-violet-700  hover:bg-violet-600 hover:ring-2 hover:ring-white m-2 rounded" id="ny"/>');
+        var ber = $('<input type="button" value="Berlin" class="bg-violet-700/70 border border-violet-700  hover:bg-violet-600 hover:ring-2 hover:ring-white m-2 rounded" id="ber"/>');
+        var cai = $('<input type="button" value="Cairo" class="bg-violet-700/70 border border-violet-700  hover:bg-violet-600 hover:ring-2 hover:ring-white m-2 rounded" id="cai"/>');
+        var tok = $('<input type="button" value="Tokyo" class="bg-violet-700/70 border border-violet-700  hover:bg-violet-600 hover:ring-2 hover:ring-white m-2 rounded" id="tok"/>');
 
         $("#city-names").append(ny);
         $("#city-names").append(ber);
@@ -160,10 +160,10 @@ var fetchWeather = function (cityInput) {
                 $("#choose-city").html("Unable to find city" + "<br>" + "<br>" + "Choose city below")
                 $("#choose-city").addClass("text-2xl text-slate-50 capitalize underline decoration-double")
 
-                var ny = $('<input type="button" value="New York" class="bg-cyan-700 hover:bg-cyan-800 hover:ring-2 hover:ring-white m-2 rounded" id="ny"/>');
-                var ber = $('<input type="button" value="Berlin" class="bg-cyan-700 hover:bg-cyan-800 hover:ring-2 hover:ring-white m-2 rounded" id="ber"/>');
-                var cai = $('<input type="button" value="Cairo" class="bg-cyan-700 hover:bg-cyan-800 hover:ring-2 hover:ring-white m-2 rounded" id="cai"/>');
-                var tok = $('<input type="button" value="Tokyo" class="bg-cyan-700 hover:bg-cyan-800 hover:ring-2 hover:ring-white m-2 rounded" id="tok"/>');
+                var ny = $('<input type="button" value="New York" class="bg-violet-700/70 border border-violet-700  hover:bg-violet-600 hover:ring-2 hover:ring-white m-2 rounded" id="ny"/>');
+                var ber = $('<input type="button" value="Berlin" class="bg-violet-700/70 border border-violet-700  hover:bg-violet-600 hover:ring-2 hover:ring-white m-2 rounded" id="ber"/>');
+                var cai = $('<input type="button" value="Cairo" class="bg-violet-700/70 border border-violet-700  hover:bg-violet-600 hover:ring-2 hover:ring-white m-2 rounded" id="cai"/>');
+                var tok = $('<input type="button" value="Tokyo" class="bg-violet-700/70 border border-violet-700  hover:bg-violet-600 hover:ring-2 hover:ring-white m-2 rounded" id="tok"/>');
 
                 $("#city-names").append(ny);
                 $("#city-names").append(ber);
@@ -221,7 +221,7 @@ var generateButton = function (cityInput, city) {
     
     var cityButton = $('<button type="button">');
     cityButton.text(cityInput);
-    cityButton.addClass("bg-cyan-700 hover:bg-cyan-800 m-2 rounded cityButton capitalize");
+    cityButton.addClass("bg-violet-700/70 border border-violet-700  hover:bg-violet-600 m-2 rounded cityButton capitalize");
     cityButton.attr("data-city", city)
 
     searchHistory.push(cityInput);

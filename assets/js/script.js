@@ -10,6 +10,8 @@ var starchart = $('#starChart');
 var meteorShower = $('#meteors');
 var con1 = $('#img1');
 
+
+
 $('#m1').text(moment().from("2022/4/22", true));
 $('#m2').text(moment().from("2022/5/07", true));
 $('#m3').text(moment().from("2022/07/30", true));
@@ -279,6 +281,7 @@ function getWeather(url) {
             return cityData.json();
         })
         .then(function (cityData) {
+            console.log(cityData);
             cityNameEl.text(cityData.name);
             let weatherIcon = cityData.weather[0].icon;
             //Get weather icons from api request
@@ -356,6 +359,54 @@ function getMoonData(lat, lon) {
     })
 
 }
+
+//News search section
+
+
+var newsHistoryEl = $("#searchedNews")
+
+//New York Times articles API key
+var newsAPIkey = "HtAUGG1rR17RDfuUBsWs6ayNljEGgw5c";
+//News search button event listener
+$('#newsButton').on('click', function () {
+    var newsInput = $("#newsText").val();
+    if (newsInput === ""){
+        alert("Please enter a keyword");
+    } else {
+        fetchNews(newsInput);
+        }
+        
+})
+
+
+//Fetch news from NYT api
+function fetchNews(input){ 
+var newsQueryUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + input +"&api-key=" + newsAPIkey;
+fetch(newsQueryUrl)
+.then(function (newsData) {
+    console.log(newsData.status);
+    return newsData.json();
+})
+.then(function (newsData) {
+    console.log(newsData);
+  for (var i = 0; i < newsData.response.docs.length; i++) {
+    var newsUrl = newsData.response.docs[i].web_url;
+    var newsTitle = newsData.response.docs[i].abstract;
+    //Use tailwind group list: https://flowbite.com/docs/components/list-group/
+    let searchedNewsEl = document.createElement('li');
+    searchedNewsEl.append("<a href='" + newsUrl + "'>" + newsTitle + "</a>");
+    newsHistoryEl.append(searchedNewsEl);
+}
+});
+}
+
+//News clear button event listener
+$("#clearNewsButton").on("click", function () {
+    localStorage.removeItem("newsSearch");
+    location.reload();
+})
+
+
 
 
 

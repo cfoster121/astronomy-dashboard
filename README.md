@@ -1,12 +1,14 @@
 # Astronomy Dashboard
 
 ## Purpose
-This project is to ....
+We created this website as a means to obtain all kinds of info on astronomy into one spot. The website includes information such as weather, visibility, cloud coverage, current moon phase, constellations that are visible at this time of year, upcoming meteor showers, and the latest news in astronomy.
 
 ## Getting Started
+To automatically have the website capture the user's location on load, the user must allow the browser to allow the permissions.
 
 
-
+## GIF Demo of website
+![](./FullWebsite.gif)
 
 
 ## Screenshot
@@ -28,15 +30,15 @@ Screenshot of deployed application:<br>
 
 # Deployed Link
 
-The link to the deployed application is: 
+The link to the deployed application is: https://dazedchou.github.io/Astronomy-Dashboard/
 
 
 ## Authors
 
 **David Chou**
 
-- Github： 
-- LinedIn： 
+- Github： https://github.com/DazedChou/
+- LinedIn： https://www.linkedin.com/in/davidchou99/
 
 **Courtney Foster**
 

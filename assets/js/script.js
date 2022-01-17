@@ -313,7 +313,7 @@ function getMoonData(lat, lon) {
             var waningCrescent = "images/waning-crescent.png"
 
             var moonPhase = data.DailyForecasts[0].Moon.Phase
-            if (moonPhase == "NewMoon") {
+            if (moonPhase == "New") {
                 $("#moon-phase-name").html("New Moon")
                 $("#moon-phase-icon").attr("src", newMoon)
                 $("#phase-description").html("We cannot see the moon when it is a new moon.")
@@ -334,7 +334,7 @@ function getMoonData(lat, lon) {
                 $("#moon-phase-icon").attr("src", waxingGibbous)
                 $("#phase-description").html("The waxing gibbous phase is between a half moon and a full moon. Waxing means it is getting bigger.")
             }
-            if (moonPhase == "FullMoon") {
+            if (moonPhase == "Full") {
                 $("#moon-phase-name").html("Full Moon")
                 $("#moon-phase-icon").attr("src", fullMoon)
                 $("#phase-description").html("We can see the moon completely illuminated during full moons.")

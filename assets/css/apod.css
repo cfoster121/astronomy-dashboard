@@ -2,8 +2,8 @@ body{
     background-color: rgb(248, 227, 195);
 }
 #apodExplanation{
-    max-width: 1024px;
+    max-width: 1240px;
     position: relative;
-    border-bottom: 20px;
-    padding-bottom: 20px;
+    border-bottom: 10px;
+    padding-bottom: 10px;
 } 

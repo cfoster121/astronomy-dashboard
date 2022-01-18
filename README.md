@@ -11,11 +11,6 @@ To automatically have the website capture the user's location on load, the user 
 ![](./FullWebsite.gif)
 
 
-## Screenshot
-Screenshot of deployed application:<br>
-<img src="#" alt="screenshot" /><br>
-
-
 
 
 ## Built With

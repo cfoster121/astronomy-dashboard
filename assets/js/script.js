@@ -297,12 +297,12 @@ function getWeather(url) {
 
 function getMoonData(lat, lon) {
     //Use lat/long to get location key
-    $.getJSON("http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=0q8znAyCHgfaN2OS3I5rUKa5s2gbg4x2&q=" + lat + "%2C" + lon, function (data) {
+    $.getJSON("http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=	mKw2A9ZvsXV5f4xpisKYTjKyHGidT5uD&q=" + lat + "%2C" + lon, function (data) {
 
         var locationKey = data.Key
 
         //Get moon phase at current location
-        $.getJSON("http://dataservice.accuweather.com/forecasts/v1/daily/1day/" + locationKey + "?apikey=0q8znAyCHgfaN2OS3I5rUKa5s2gbg4x2&details=true", function (data) {
+        $.getJSON("http://dataservice.accuweather.com/forecasts/v1/daily/1day/" + locationKey + "?apikey=		mKw2A9ZvsXV5f4xpisKYTjKyHGidT5uD&details=true", function (data) {
 
             var newMoon = "images/new-moon.png"
             var waxingCrescent = "images/waxing-crescent.png"

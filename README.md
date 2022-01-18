@@ -12,7 +12,7 @@ To automatically have the website capture the user's location on load, the user 
 ## GIF Demo of website
 ![](./FullWebsite.gif)
 
-
+## Code Highlights
 
 
 ## Built With

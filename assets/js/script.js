@@ -81,6 +81,13 @@ $('#searchedCities').on('click', '.cityButton', function () {
     fetchWeather(city);
 })
 
+//Added a Enter key press event listener, for triggering the search button
+searchInput.keyup(function(event) {
+    if (event.which === 13) {
+        $("#searchButton").click();
+    }
+});
+
 //Search button event listener
 $('#searchButton').on('click', function () {
 

@@ -23,8 +23,9 @@ Screenshot of deployed application:<br>
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/javascript)
+* [JQuery](https://developer.mozilla.org/en-US/docs/Glossary/jQuery)
 * [Moment.js](https://momentjs.com/docs/)
-* [Tailwindcss](https://tailwindcss.com/)
+* [TailwindCSS](https://tailwindcss.com/)
 * [DataTables](https://datatables.net/)
 
 
@@ -42,8 +43,8 @@ The link to the deployed application is: https://dazedchou.github.io/Astronomy-D
 
 **Courtney Foster**
 
-- Github： 
-- LinedIn： 
+- Github： https://github.com/cfoster121
+- LinedIn： https://www.linkedin.com/in/courtney-foster-0b364575/
 
 **Baofeng Guo**
 
@@ -55,5 +56,12 @@ The link to the deployed application is: https://dazedchou.github.io/Astronomy-D
 This project is licensed under the MIT License
 
 ## Credits
-
+* [W3 Schools](https://www.w3schools.com/)
+* [MDN Web Docs](https://developer.mozilla.org/en-US/)
+* [Gif Application](https://gifox.io/)
+* [Flat Icon Royalty Free Images](https://www.flaticon.com/)
+* [Remove Background App](https://www.remove.bg/)
+* [Open Weather API](https://openweathermap.org/api)
+* [AccuWeather API](https://developer.accuweather.com/apis)
+* [NASA API](https://api.nasa.gov/)
 

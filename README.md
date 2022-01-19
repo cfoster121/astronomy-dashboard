@@ -24,7 +24,7 @@ To automatically have the website capture the user's location on load, the user 
 
 - ![](images/weather.png)  
 - ![](images/weather-code.png)  
-- OpenWeatherMap API (server side)
+- OpenWeatherMap API (server side)  
 ![](images/weather-api.png)  
 
 * **As a user** - I want to be able to search for a city if I choose not to use geolocation   
@@ -142,4 +142,4 @@ This project is licensed under the MIT License
 * [Open Weather API](https://openweathermap.org/api)
 * [AccuWeather API](https://developer.accuweather.com/apis)
 * [NASA API](https://api.nasa.gov/)
-
+* [NYT API](https://developer.nytimes.com/)

@@ -45,7 +45,7 @@ To automatically have the website capture the user's location on load, the user 
 - ![](images/moon-phase-code2.png)  
 - AccuWeather Location API  
 ![](images/moon-phase-api1.png)  
-- AccuWeather Forecast API (server side)
+- AccuWeather Forecast API (server side)  
 ![](images/moon-phase-api2.png)    
 
 * **As a user** - I want to see a table of upcoming meteor showers  
